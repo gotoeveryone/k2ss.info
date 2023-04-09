@@ -1,18 +1,18 @@
 export interface EmbedItem {
-  rendered: string;
+	rendered: string;
 }
 
 export interface PostListItem {
-  id: number;
-  date: string;
-  title: EmbedItem;
-  excerpt: EmbedItem;
+	id: number;
+	date: string;
+	title: EmbedItem;
+	excerpt: EmbedItem;
 }
 
 export interface PostItem {
-  id: number;
-  date: string;
-  title: EmbedItem;
-  excerpt: EmbedItem;
-  content: EmbedItem;
+	id: number;
+	date: string;
+	title: EmbedItem;
+	excerpt: EmbedItem;
+	content: EmbedItem;
 }

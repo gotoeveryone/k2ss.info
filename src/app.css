@@ -3,39 +3,39 @@
 @tailwind utilities;
 
 html {
-  @apply bg-gray-800 text-white text-sm md:text-base;
-  font-family: "Hiragino Kaku Gothic Pro",Meiryo,sans-serif;
+	@apply bg-gray-800 text-white text-sm md:text-base;
+	font-family: 'Hiragino Kaku Gothic Pro', Meiryo, sans-serif;
 }
 
 ul {
-  @apply list-disc mt-2 mb-4;
+	@apply list-disc mt-2 mb-4;
 }
 
 li {
-  @apply ml-8;
+	@apply ml-8;
 }
 
 li ul {
-  @apply list-disc m-0;
+	@apply list-disc m-0;
 }
 
 a {
-  @apply underline;
+	@apply underline;
 }
 
 h1 {
-  @apply font-bold text-3xl mt-8 mb-4;
+	@apply font-bold text-3xl mt-8 mb-4;
 }
 
 h2 {
-  @apply font-bold text-xl mt-8 mb-2;
+	@apply font-bold text-xl mt-8 mb-2;
 }
 
 h3 {
-  @apply font-bold text-base mt-4 mb-2;
+	@apply font-bold text-base mt-4 mb-2;
 }
 
 /* 記事一覧の「続きを読む」リンク */
 .link-more {
-  @apply mt-4;
+	@apply mt-4;
 }
