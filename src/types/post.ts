@@ -1,3 +1,5 @@
+import type { Category } from './category';
+
 export interface EmbedItem {
 	rendered: string;
 }
@@ -15,4 +17,5 @@ export interface PostItem {
 	title: EmbedItem;
 	excerpt: EmbedItem;
 	content: EmbedItem;
+	categories: Category[];
 }
