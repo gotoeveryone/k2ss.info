@@ -31,14 +31,6 @@ export const load = async ({ params }) => {
 		return {
 			post: {
 				...data,
-				content: {
-					...data.content,
-					// NOTE: Wordpress 上の画像はドメインを強制的に付与して、prerender しないようにしておく
-					rendered: data.content.rendered.replaceAll(
-						/"\/wp-content\/(.*?)"/g,
-						'"https://k2ss.info/wp-content/$1"'
-					)
-				},
 				categories
 			} as PostItem
 		};
