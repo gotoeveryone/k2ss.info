@@ -26,4 +26,11 @@
 	<li>Depending on contents of contact, I sometimes take time to reply.</li>
 </ul>
 
-<!-- TODO -->
+<iframe
+	src="https://docs.google.com/forms/d/e/1FAIpQLSckIJ1h8hRg56s1geieJrWMK6BMg-q0iSMSFwzZWuAvlVFDxg/viewform?embedded=true"
+	class="w-full"
+	height="950"
+	frameborder="0"
+	marginheight="0"
+	marginwidth="0">読み込んでいます…</iframe
+>
