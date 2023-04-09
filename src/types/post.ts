@@ -8,3 +8,11 @@ export interface PostListItem {
   title: EmbedItem;
   excerpt: EmbedItem;
 }
+
+export interface PostItem {
+  id: number;
+  date: string;
+  title: EmbedItem;
+  excerpt: EmbedItem;
+  content: EmbedItem;
+}
