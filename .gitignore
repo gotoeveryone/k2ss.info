@@ -21,4 +21,4 @@ vite.config.ts.timestamp-*
 !/.vscode/extensions.json
 
 # Firebase
-/firebase
+/.firebase

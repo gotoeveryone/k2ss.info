@@ -1,10 +1,17 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import type { PageServerData } from './$types';
+	import { getMetaTitle, getOpenGraph } from '$lib/modules/meta';
 	import dayjs from 'dayjs';
+	import { MetaTags } from 'svelte-meta-tags';
+	import type { PageServerData } from './$types';
 
 	export let data: PageServerData;
 </script>
+
+<MetaTags
+	title={getMetaTitle(data.post.title.rendered)}
+	openGraph={getOpenGraph({ type: 'article', path: `/articles/${data.post.id}/` })}
+/>
 
 <article>
 	<span class="text-xs">{dayjs(data.post.date).format('YYYY/MM/DD')}</span>

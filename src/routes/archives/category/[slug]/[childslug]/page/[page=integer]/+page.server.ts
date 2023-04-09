@@ -27,6 +27,7 @@ export const load = async ({ params }) => {
 				const posts = (await response.json()) as PostListItem[];
 				return {
 					urlPrefix: `/archives/category/${params.slug}/${params.childslug}/`,
+					category: data[0],
 					total: total && total.length ? parseInt(total, 10) : 0,
 					totalPage: totalPage && totalPage.length ? parseInt(totalPage, 10) : 0,
 					currentPage: parseInt(params.page, 10),

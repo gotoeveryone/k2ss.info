@@ -1,3 +1,12 @@
+<script lang="ts">
+	import { getMetaTitle, getOpenGraph } from '$lib/modules/meta';
+	import { MetaTags } from 'svelte-meta-tags';
+
+	const title = getMetaTitle('About me');
+</script>
+
+<MetaTags {title} openGraph={getOpenGraph({ title, path: '/profile/' })} />
+
 <h1>About me</h1>
 <span class="webmaster">Kazuki Kamizuru</span>
 
