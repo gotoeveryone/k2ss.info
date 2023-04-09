@@ -6,7 +6,7 @@ export const load = async ({ params }) => {
 
   const response = await fetch(endpoint);
 
-  if (response.status === 200) {
+  if (response.ok) {
     const data = await response.json() as PostItem;
     return {
       post: data

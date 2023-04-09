@@ -31,6 +31,18 @@ h3 {
   @apply font-bold text-base mt-4 mb-2;
 }
 
+/* 記事本文のコード部調整 */
+/* TODO: レイアウト調整時に不要になるはず */
+pre {
+  @apply bg-black my-4 p-4 leading-6;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+code {
+  @apply text-xs;
+}
+
 /* 記事一覧の「続きを読む」リンク */
 .link-more {
   @apply mt-4;
