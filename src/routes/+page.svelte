@@ -1,17 +1,14 @@
 <script lang="ts">
 	import type { PageServerData } from './$types';
-	import dayjs from 'dayjs';
+	import Pager from '$lib/components/pager.svelte';
+	import PostItem from '$lib/components/post-item.svelte';
 
 	export let data: PageServerData;
 </script>
 
-<h1>記事一覧</h1>
+<h1>記事一覧 ({data.total}件)</h1>
 {#each data.posts as post}
-	<div class="my-8">
-		<span class="text-xs">{dayjs(post.date).format('YYYY/MM/DD')}</span>
-		<h2 class="mt-2 text-xl font-bold hover:underline">
-			<a href={`/archives/${post.id}/`}>{post.title.rendered}</a>
-		</h2>
-		<div>{@html post.excerpt.rendered}</div>
-	</div>
+	<PostItem item={post} />
 {/each}
+
+<Pager currentPage={1} totalPage={data.totalPage} />
