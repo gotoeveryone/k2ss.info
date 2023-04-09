@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html {
-  @apply bg-gray-800 text-white;
+  @apply bg-gray-800 text-white text-sm md:text-base;
   font-family: "Hiragino Kaku Gothic Pro",Meiryo,sans-serif;
 }
 

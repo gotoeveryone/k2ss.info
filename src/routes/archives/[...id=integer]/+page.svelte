@@ -1,4 +1,4 @@
-<article class="my-8">
+<article>
   <span class="text-xs">{dayjs(data.post.date).format("YYYY/MM/DD")}</span>
   <h1 class="mt-2 text-2xl font-bold">{data.post.title.rendered}</h1>
   <div class="leading-8">{@html data.post.content.rendered}</div>
