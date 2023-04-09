@@ -1,3 +1,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  @apply bg-gray-800 text-white;
+  font-family: "Hiragino Kaku Gothic Pro",Meiryo,sans-serif;
+}
+
+ul {
+  @apply list-disc mt-2 mb-4;
+}
+
+li {
+  @apply ml-8;
+}
+
+a {
+  @apply underline;
+}
+
+h1 {
+  @apply font-bold text-3xl mt-8 mb-4;
+}
+
+h2 {
+  @apply font-bold text-xl mt-8 mb-2;
+}
+
+h3 {
+  @apply font-bold text-base mt-4 mb-2;
+}
