@@ -1,6 +1,5 @@
 <script lang="ts">
 	import type { PageServerData } from './$types';
-	import Pager from '$lib/components/pager.svelte';
 	import PostItem from '$lib/components/post-item.svelte';
 
 	export let data: PageServerData;
@@ -10,5 +9,3 @@
 {#each data.posts as post}
 	<PostItem item={post} />
 {/each}
-
-<Pager currentPage={1} totalPage={data.totalPage} />

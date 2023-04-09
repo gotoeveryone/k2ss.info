@@ -37,7 +37,7 @@
 			class="absolute min-w-[200px] m-0 p-0 top-8 right-0 bg-gray-600 border border-black rounded"
 		>
 			<li class="list-none m-0 hover:bg-gray-700">
-				<a class="px-4 py-3 block" on:click={toggleMenu} href="/">Posts</a>
+				<a class="px-4 py-3 block" on:click={toggleMenu} href="/">最近の記事</a>
 			</li>
 			<li class="list-none m-0">
 				<ul class="m-0 p-0">
