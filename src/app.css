@@ -30,3 +30,8 @@ h2 {
 h3 {
   @apply font-bold text-base mt-4 mb-2;
 }
+
+/* 記事一覧の「続きを読む」リンク */
+.link-more {
+  @apply mt-4;
+}
