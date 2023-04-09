@@ -1,5 +1,5 @@
 import { error } from '@sveltejs/kit';
-import type { PostItem } from '../../../types/post';
+import type { PostItem } from 'types/post';
 
 export const load = async ({ params }) => {
   const endpoint = `https://k2ss.info/wp-json/wp/v2/posts/${params.id}`;
