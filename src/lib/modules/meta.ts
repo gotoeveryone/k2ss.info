@@ -55,7 +55,7 @@ export const getOpenGraph = (
 });
 
 export const getTwitter = (): Twitter => ({
-	site: TWITTER_ACCOUNT,
+	site: `@${TWITTER_ACCOUNT}`,
 	title: getMetaTitle(),
 	description: getMetaDescription(),
 	image: getMetaImagePath()
