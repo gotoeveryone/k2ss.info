@@ -9,7 +9,14 @@ export const load = async ({ params }) => {
   if (response.ok) {
     const data = await response.json() as PostItem;
     return {
-      post: data
+      post: {
+        ...data,
+        content: {
+          ...data.content,
+          // NOTE: Wordpress 上の画像はドメインを強制的に付与して、prerender しないようにしておく
+          rendered: data.content.rendered.replaceAll(/"\/wp-content\/(.*?)"/g, '"https://k2ss.info/wp-content/$1"'),
+        }
+      }
     }
   }
 

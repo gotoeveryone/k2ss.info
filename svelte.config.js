@@ -18,6 +18,22 @@ const config = {
      precompress: false,
      strict: true,
     }),
+    prerender: {
+      entries: [
+        '/archives/category/it/',
+        '/archives/category/it/golang/',
+        '/archives/category/it/python/',
+        '/archives/category/it/javascript/',
+        '/archives/category/it/php/',
+        '/archives/category/it/operation/',
+        '/archives/category/igo/',
+        '/archives/category/others/',
+        '/archives/category/others/jobs',
+        '/archives/category/others/certificates',
+        '/archives/category/others/books',
+        '/archives/category/others/travels',
+      ],
+    }
 	}
 };
 
