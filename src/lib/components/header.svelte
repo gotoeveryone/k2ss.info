@@ -9,6 +9,32 @@
 	const toggleMenu = () => {
 		isOpen = !isOpen;
 	};
+
+	const postItems = [
+		{
+			slug: 'it',
+			text: 'IT',
+			subItems: [
+				{ slug: 'golang', text: 'Golang' },
+				{ slug: 'python', text: 'Python' },
+				{ slug: 'javascript', text: 'JavaScript' },
+				{ slug: 'php', text: 'PHP' },
+				{ slug: 'operation', text: 'インフラ・運用' }
+			]
+		},
+		{ slug: 'igo', text: '囲碁', subItems: [] },
+		{
+			slug: 'others',
+			text: 'その他',
+			subItems: [
+				{ slug: 'jobs', text: '仕事' },
+				{ slug: 'books', text: '本・漫画' },
+				{ slug: 'certificates', text: '資格' },
+				{ slug: 'meals', text: '料理' },
+				{ slug: 'travels', text: '旅行' }
+			]
+		}
+	];
 </script>
 
 <header class="relative w-full h-8 mt-4 mb-2 flex items-stretch justify-end">
@@ -41,82 +67,30 @@
 			</li>
 			<li class="list-none m-0">
 				<ul class="m-0 p-0">
-					<li class="list-none m-0 pl-2 hover:bg-gray-700">
-						<a class="px-4 py-2 block" on:click={toggleMenu} href="/archives/category/it">IT</a>
-					</li>
-					<li class="list-none m-0">
-						<ul class="m-0 p-0">
-							<li class="list-none m-0 pl-4 hover:bg-gray-700">
-								<a class="px-4 py-2 block" on:click={toggleMenu} href="/archives/category/it/golang"
-									>Golang</a
-								>
+					{#each postItems as item}
+						<li class="list-none m-0 pl-2 hover:bg-gray-700">
+							<a
+								class="px-4 py-2 block"
+								on:click={toggleMenu}
+								href={`/archives/category/${item.slug}`}>{item.text}</a
+							>
+						</li>
+						{#if item.subItems.length > 0}
+							<li class="list-none m-0">
+								<ul class="m-0 p-0">
+									{#each item.subItems as subItem}
+										<li class="list-none m-0 pl-4 hover:bg-gray-700">
+											<a
+												class="px-4 py-2 block"
+												on:click={toggleMenu}
+												href={`/archives/category/${item.slug}/${subItem.slug}`}>{subItem.text}</a
+											>
+										</li>
+									{/each}
+								</ul>
 							</li>
-							<li class="list-none m-0 pl-4 hover:bg-gray-700">
-								<a class="px-4 py-2 block" on:click={toggleMenu} href="/archives/category/it/python"
-									>Python</a
-								>
-							</li>
-							<li class="list-none m-0 pl-4 hover:bg-gray-700">
-								<a
-									class="px-4 py-2 block"
-									on:click={toggleMenu}
-									href="/archives/category/it/javascript">JavaScript</a
-								>
-							</li>
-							<li class="list-none m-0 pl-4 hover:bg-gray-700">
-								<a class="px-4 py-2 block" on:click={toggleMenu} href="/archives/category/it/php"
-									>PHP</a
-								>
-							</li>
-							<li class="list-none m-0 pl-4 hover:bg-gray-700">
-								<a
-									class="px-4 py-2 block"
-									on:click={toggleMenu}
-									href="/archives/category/it/operation">インフラ・運用</a
-								>
-							</li>
-						</ul>
-					</li>
-					<li class="list-none m-0 pl-2 hover:bg-gray-700">
-						<a class="px-4 py-2 block" on:click={toggleMenu} href="/archives/category/igo">囲碁</a>
-					</li>
-					<li class="list-none m-0 pl-2 hover:bg-gray-700">
-						<a class="px-4 py-2 block" on:click={toggleMenu} href="/archives/category/others"
-							>その他</a
-						>
-					</li>
-					<li class="list-none m-0">
-						<ul class="m-0 p-0">
-							<li class="list-none m-0 pl-4 hover:bg-gray-700">
-								<a
-									class="px-4 py-2 block"
-									on:click={toggleMenu}
-									href="/archives/category/others/jobs">仕事</a
-								>
-							</li>
-							<li class="list-none m-0 pl-4 hover:bg-gray-700">
-								<a
-									class="px-4 py-2 block"
-									on:click={toggleMenu}
-									href="/archives/category/others/certificates">資格</a
-								>
-							</li>
-							<li class="list-none m-0 pl-4 hover:bg-gray-700">
-								<a
-									class="px-4 py-2 block"
-									on:click={toggleMenu}
-									href="/archives/category/others/books">本・漫画</a
-								>
-							</li>
-							<li class="list-none m-0 pl-4 hover:bg-gray-700">
-								<a
-									class="px-4 py-2 block"
-									on:click={toggleMenu}
-									href="/archives/category/others/travels">旅行</a
-								>
-							</li>
-						</ul>
-					</li>
+						{/if}
+					{/each}
 				</ul>
 			</li>
 			<li class="list-none m-0 hover:bg-gray-700">

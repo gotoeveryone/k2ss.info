@@ -29,8 +29,9 @@ const config = {
 				'/archives/category/igo/',
 				'/archives/category/others/',
 				'/archives/category/others/jobs',
-				'/archives/category/others/certificates',
 				'/archives/category/others/books',
+				'/archives/category/others/certificates',
+				'/archives/category/others/meals',
 				'/archives/category/others/travels'
 			]
 		}
