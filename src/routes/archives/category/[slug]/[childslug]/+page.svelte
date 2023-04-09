@@ -1,4 +1,4 @@
-<h1>記事一覧</h1>
+<h1>{data.category.name} の記事一覧</h1>
 {#each data.posts as post}
 <div class="my-8">
   <span class="text-xs">{dayjs(post.date).format("YYYY/MM/DD")}</span>
