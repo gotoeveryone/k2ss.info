@@ -1,14 +1,28 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
 	import { GITHUB_ACCOUNT, SITE_NAME, TWITTER_ACCOUNT } from '$lib/constants';
-	import { fly } from 'svelte/transition';
-	import Fa from 'svelte-fa/src/fa.svelte';
 	import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
 	import { faBars } from '@fortawesome/free-solid-svg-icons';
+	import { onDestroy, onMount } from 'svelte';
+	import { fly } from 'svelte/transition';
+	import Fa from 'svelte-fa/src/fa.svelte';
 
 	let isOpen = false;
+	let buttonRef: HTMLButtonElement;
 
-	const toggleMenu = () => {
+	const toggleDropdown = () => {
 		isOpen = !isOpen;
+	};
+
+	const closeDropdown = () => {
+		isOpen = false;
+	};
+
+	const handleClickToCloseDropdown = (event: Event) => {
+		if (!isOpen || buttonRef?.contains(event.target as Node)) {
+			return;
+		}
+		closeDropdown();
 	};
 
 	const postItems = [
@@ -36,6 +50,18 @@
 			]
 		}
 	];
+
+	onMount(() => {
+		if (browser) {
+			window.addEventListener('click', handleClickToCloseDropdown, { passive: true });
+		}
+	});
+
+	onDestroy(() => {
+		if (browser) {
+			window.removeEventListener('click', handleClickToCloseDropdown);
+		}
+	});
 </script>
 
 <header class="w-full h-8 mt-4 mb-2 flex items-center justify-between">
@@ -59,7 +85,11 @@
 		>
 			<Fa icon={faGithub} size="lg" />
 		</a>
-		<button class="w-9 flex items-center justify-center" on:click={toggleMenu}>
+		<button
+			class="w-9 flex items-center justify-center"
+			bind:this={buttonRef}
+			on:click={toggleDropdown}
+		>
 			<Fa icon={faBars} size="lg" />
 		</button>
 		{#if isOpen}
@@ -68,17 +98,13 @@
 				class="absolute z-10 min-w-[200px] m-0 p-0 top-8 right-0 bg-gray-600 border border-black rounded"
 			>
 				<li class="list-none m-0 hover:bg-gray-700">
-					<a class="px-4 py-3 block" on:click={toggleMenu} href="/">最近の記事</a>
+					<a class="px-4 py-3 block" href="/">最近の記事</a>
 				</li>
 				<li class="list-none m-0">
 					<ul class="m-0 p-0">
 						{#each postItems as item}
 							<li class="list-none m-0 pl-2 hover:bg-gray-700">
-								<a
-									class="px-4 py-2 block"
-									on:click={toggleMenu}
-									href={`/archives/category/${item.slug}/`}>{item.text}</a
-								>
+								<a class="px-4 py-2 block" href={`/archives/category/${item.slug}/`}>{item.text}</a>
 							</li>
 							{#if item.subItems.length > 0}
 								<li class="list-none m-0">
@@ -87,7 +113,6 @@
 											<li class="list-none m-0 pl-4 hover:bg-gray-700">
 												<a
 													class="px-4 py-2 block"
-													on:click={toggleMenu}
 													href={`/archives/category/${item.slug}/${subItem.slug}/`}
 													>{subItem.text}</a
 												>
@@ -100,10 +125,10 @@
 					</ul>
 				</li>
 				<li class="list-none m-0 hover:bg-gray-700">
-					<a class="px-4 py-3 block" on:click={toggleMenu} href="/profile/">Profile</a>
+					<a class="px-4 py-3 block" href="/profile/">Profile</a>
 				</li>
 				<li class="list-none m-0 hover:bg-gray-700">
-					<a class="px-4 py-3 block" on:click={toggleMenu} href="/contact/">Contact</a>
+					<a class="px-4 py-3 block" href="/contact/">Contact</a>
 				</li>
 			</ul>
 		{/if}
