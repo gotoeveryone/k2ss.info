@@ -29,7 +29,7 @@
 	<a href="/">一覧に戻る</a>
 </div>
 
-{#if browser}
+<svelte:head>
 	<script async src="https://platform.twitter.com/widgets.js"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"
@@ -81,4 +81,4 @@
 		crossorigin="anonymous"
 		referrerpolicy="no-referrer"
 	/>
-{/if}
+</svelte:head>
