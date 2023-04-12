@@ -65,7 +65,7 @@
 		{#if isOpen}
 			<ul
 				transition:fly={{ duration: 500 }}
-				class="absolute min-w-[200px] m-0 p-0 top-8 right-0 bg-gray-600 border border-black rounded"
+				class="absolute z-10 min-w-[200px] m-0 p-0 top-8 right-0 bg-gray-600 border border-black rounded"
 			>
 				<li class="list-none m-0 hover:bg-gray-700">
 					<a class="px-4 py-3 block" on:click={toggleMenu} href="/">最近の記事</a>
