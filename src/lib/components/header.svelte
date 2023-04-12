@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { SITE_NAME } from '$lib/constants';
+	import { GITHUB_ACCOUNT, SITE_NAME, TWITTER_ACCOUNT } from '$lib/constants';
 	import { fly } from 'svelte/transition';
 	import Fa from 'svelte-fa/src/fa.svelte';
 	import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
@@ -47,7 +47,7 @@
 			class="w-9 flex items-center justify-center"
 			target="_blank"
 			rel="noopener noreferrer"
-			href="https://github.com/gotoeveryone/"
+			href={`https://github.com/${GITHUB_ACCOUNT}`}
 		>
 			<Fa icon={faTwitter} size="lg" />
 		</a>
@@ -55,7 +55,7 @@
 			class="w-9 flex items-center justify-center"
 			target="_blank"
 			rel="noopener noreferrer"
-			href="https://twitter.com/kzkamago0721"
+			href={`https://twitter.com/${TWITTER_ACCOUNT}`}
 		>
 			<Fa icon={faGithub} size="lg" />
 		</a>
