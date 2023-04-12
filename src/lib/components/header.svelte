@@ -77,7 +77,7 @@
 								<a
 									class="px-4 py-2 block"
 									on:click={toggleMenu}
-									href={`/archives/category/${item.slug}`}>{item.text}</a
+									href={`/archives/category/${item.slug}/`}>{item.text}</a
 								>
 							</li>
 							{#if item.subItems.length > 0}
@@ -88,7 +88,8 @@
 												<a
 													class="px-4 py-2 block"
 													on:click={toggleMenu}
-													href={`/archives/category/${item.slug}/${subItem.slug}`}>{subItem.text}</a
+													href={`/archives/category/${item.slug}/${subItem.slug}/`}
+													>{subItem.text}</a
 												>
 											</li>
 										{/each}
@@ -99,10 +100,10 @@
 					</ul>
 				</li>
 				<li class="list-none m-0 hover:bg-gray-700">
-					<a class="px-4 py-3 block" on:click={toggleMenu} href="/profile">Profile</a>
+					<a class="px-4 py-3 block" on:click={toggleMenu} href="/profile/">Profile</a>
 				</li>
 				<li class="list-none m-0 hover:bg-gray-700">
-					<a class="px-4 py-3 block" on:click={toggleMenu} href="/contact">Contact</a>
+					<a class="px-4 py-3 block" on:click={toggleMenu} href="/contact/">Contact</a>
 				</li>
 			</ul>
 		{/if}
