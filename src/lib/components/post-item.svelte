@@ -10,5 +10,6 @@
 	<h2 class="mt-2 text-xl font-bold hover:underline">
 		<a href={`/archives/${item.id}/`}>{item.title.rendered}</a>
 	</h2>
-	<div>{@html item.excerpt.rendered}</div>
+	<!-- 続きを読むリンクは削除する -->
+	<div>{@html item.excerpt.rendered.replace(/<p class\="link-more">.*?<\/p>\n/g, '')}</div>
 </div>

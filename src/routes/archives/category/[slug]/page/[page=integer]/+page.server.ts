@@ -1,18 +1,22 @@
 import { error } from '@sveltejs/kit';
+import { Category as CategoryRepo } from '$lib/repositories/category';
+import { Post as PostRepo } from '$lib/repositories/post';
 import type { Category } from 'types/category';
 import type { PostListItem } from 'types/post';
 
 export const load = async ({ params }) => {
-	const endpoint = `https://k2ss.info/wp-json/wp/v2/categories?slug=${params.slug}`;
-
-	const response = await fetch(endpoint);
+	const categoryRepo = new CategoryRepo();
+	const response = await categoryRepo.getCategories({ slug: params.slug });
 
 	if (response.ok) {
 		const data = (await response.json()) as Category[];
 		if (data.length) {
-			const endpoint = `https://k2ss.info/wp-json/wp/v2/posts?page=${params.page}&per_page=10&context=embed&categories=${data[0].id}`;
-
-			const response = await fetch(endpoint);
+			const page = parseInt(params.page, 10);
+			const postRepo = new PostRepo();
+			const response = await postRepo.getPosts({
+				page,
+				categoryId: data[0].id
+			});
 			if (response.ok) {
 				const total = response.headers.get('x-wp-total');
 				const totalPage = response.headers.get('x-wp-totalpages');
@@ -21,7 +25,7 @@ export const load = async ({ params }) => {
 					urlPrefix: `/archives/category/${params.slug}/`,
 					total: total && total.length ? parseInt(total, 10) : 0,
 					totalPage: totalPage && totalPage.length ? parseInt(totalPage, 10) : 0,
-					currentPage: parseInt(params.page, 10),
+					currentPage: page,
 					posts
 				};
 			}

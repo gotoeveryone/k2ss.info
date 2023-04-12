@@ -6,6 +6,13 @@
 
 - Node.js
 
+## Setup
+
+```bash
+$ npm i
+$ cp .env.example .env
+```
+
 ## Run
 
 ```bash

@@ -1,10 +1,11 @@
-import { SITE_NAME, SITE_URL, TWITTER_ACCOUNT } from '$lib/constants';
+import { PUBLIC_SITE_URL } from '$env/static/public';
+import { SITE_NAME, TWITTER_ACCOUNT } from '$lib/constants';
 import { getSiteUrl } from '$lib/modules/site';
 import type { OpenGraph, Twitter } from 'svelte-meta-tags';
 
 export const getMetaImagePath = (path?: string) => {
 	if (!path) {
-		return `${SITE_URL}/wp-content/uploads/2017/08/icon.png`;
+		return `${PUBLIC_SITE_URL}/wp-content/uploads/2017/08/icon.png`;
 	}
 	return path;
 };

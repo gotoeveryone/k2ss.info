@@ -1,9 +1,9 @@
+import { Post as PostRepo } from '$lib/repositories/post';
 import type { PostListItem } from 'types/post';
 
 export const load = async () => {
-	const endpoint = `https://k2ss.info/wp-json/wp/v2/posts?page=1&per_page=10&context=embed`;
-
-	const response = await fetch(endpoint);
+	const postRepo = new PostRepo();
+	const response = await postRepo.getPosts({ page: 1, perPage: 20 });
 	const total = response.headers.get('x-wp-total');
 	const totalPage = response.headers.get('x-wp-totalpages');
 	const posts = (await response.json()) as PostListItem[];
