@@ -19,7 +19,7 @@ export const load = async ({ params }) => {
 				...data,
 				content: {
 					...data.content,
-					rendered: data.content.rendered.replace(new RegExp(`${SOURCE_URL}/`, 'g'), '')
+					rendered: data.content.rendered.replace(new RegExp(`${SOURCE_URL}/`, 'g'), '/')
 				},
 				categories: categories.map((c) => ({
 					...c,
