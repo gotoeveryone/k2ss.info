@@ -32,10 +32,55 @@ h2 {
 }
 
 h3 {
-	@apply font-bold text-base mt-4 mb-2;
+	@apply font-bold text-lg mt-4 mb-2;
+}
+
+p {
+  @apply mb-4;
 }
 
 /* 記事一覧の「続きを読む」リンク */
 .link-more {
 	@apply mt-4;
+}
+
+/* 移植したスタイル */
+.impact-text {
+  color: #00f;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.important-message {
+  margin: 10px 0;
+  color: rgb(216, 69, 69);
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.important-message-large {
+  margin: 30px 0;
+  color: rgb(216, 69, 69);
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.alert-message {
+  color: rgb(216, 69, 69);
+}
+
+.sub-message {
+  color: rgb(216, 69, 69);
+  font-size: 11px;
+}
+
+.flex-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.flex-content img {
+  margin: 5px;
 }
