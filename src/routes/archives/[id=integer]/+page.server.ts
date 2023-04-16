@@ -21,6 +21,7 @@ export const load = async ({ params }) => {
 				content: {
 					...data.content,
 					rendered: data.content.rendered
+						.replace(new RegExp(`i0.wp.com/`, 'g'), '')
 						.replace(new RegExp(`${SOURCE_URL}/`, 'g'), '/')
 						.replace(new RegExp('/wp-content/uploads/', 'g'), '/images/')
 				},
