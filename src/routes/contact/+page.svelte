@@ -3,7 +3,7 @@
 	import { getSiteUrl } from '$lib/modules/site';
 	import { MetaTags } from 'svelte-meta-tags';
 
-	const title = getMetaTitle('About me');
+	const title = getMetaTitle('Contact');
 </script>
 
 <MetaTags
