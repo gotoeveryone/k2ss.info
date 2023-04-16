@@ -33,20 +33,14 @@
 <svelte:head>
 	<script async src="https://platform.twitter.com/widgets.js"></script>
 	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"
-		integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg=="
-		crossorigin="anonymous"
-		referrerpolicy="no-referrer"
-	></script>
-	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"
 		integrity="sha512-q583ppKrCRc7N5O0n2nzUiJ+suUv7Et1JGels4bXOaMFQcamPk9HjdUknZuuFjBNs7tsMuadge5k9RzdmO+1GQ=="
 		crossorigin="anonymous"
 		referrerpolicy="no-referrer"
 	></script>
 	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"
-		integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg=="
+		src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"
+		integrity="sha512-9khQRAUBYEJDCDVP2yw3LRUQvjJ0Pjx0EShmaQjcHa6AXiOv6qHQu9lCAIR8O+/D8FtaCoJ2c0Tf9Xo7hYH01Q=="
 		crossorigin="anonymous"
 		referrerpolicy="no-referrer"
 	></script>
