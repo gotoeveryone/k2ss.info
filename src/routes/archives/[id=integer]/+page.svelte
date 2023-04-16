@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
 	import { getMetaTitle, getOpenGraph } from '$lib/modules/meta';
+	import { getSiteUrl } from '$lib/modules/site';
 	import dayjs from 'dayjs';
 	import { MetaTags } from 'svelte-meta-tags';
 	import type { PageServerData } from './$types';
@@ -10,7 +10,8 @@
 
 <MetaTags
 	title={getMetaTitle(data.post.title.rendered)}
-	openGraph={getOpenGraph({ type: 'article', path: `/articles/${data.post.id}/` })}
+	canonical={getSiteUrl(data.path)}
+	openGraph={getOpenGraph({ type: 'article', path: data.path })}
 />
 
 <article>

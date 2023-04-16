@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { PageServerData } from './$types';
 	import PostItem from '$lib/components/post-item.svelte';
+	import type { PageServerData } from './$types';
 
 	export let data: PageServerData;
 </script>

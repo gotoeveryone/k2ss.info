@@ -3,6 +3,7 @@
 	import Pager from '$lib/components/pager.svelte';
 	import PostItem from '$lib/components/post-item.svelte';
 	import { getMetaTitle, getOpenGraph } from '$lib/modules/meta';
+	import { getSiteUrl } from '$lib/modules/site';
 	import { MetaTags } from 'svelte-meta-tags';
 
 	export let data: PageServerData;
@@ -10,6 +11,7 @@
 
 <MetaTags
 	title={getMetaTitle(data.category.name)}
+	canonical={getSiteUrl(data.path)}
 	openGraph={getOpenGraph({
 		title: getMetaTitle(data.category.name),
 		path: data.urlPrefix

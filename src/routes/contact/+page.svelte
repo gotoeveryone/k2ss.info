@@ -1,11 +1,16 @@
 <script lang="ts">
 	import { getMetaTitle, getOpenGraph } from '$lib/modules/meta';
+	import { getSiteUrl } from '$lib/modules/site';
 	import { MetaTags } from 'svelte-meta-tags';
 
 	const title = getMetaTitle('About me');
 </script>
 
-<MetaTags {title} openGraph={getOpenGraph({ title, path: '/contact/' })} />
+<MetaTags
+	{title}
+	canonical={getSiteUrl('/contact/')}
+	openGraph={getOpenGraph({ title, path: '/contact/' })}
+/>
 
 <div style="color: #f00; font-size: 1.2em">※ご注意ください</div>
 <ul class="posts">

@@ -17,6 +17,7 @@ export const load = async ({ params }) => {
 			const totalPage = response.headers.get('x-wp-totalpages');
 			const posts = (await response.json()) as PostListItem[];
 			return {
+				path: `/archives/category/${params.slug}/`,
 				urlPrefix: `/archives/category/${params.slug}/`,
 				category: data[0],
 				total: total && total.length ? parseInt(total, 10) : 0,
