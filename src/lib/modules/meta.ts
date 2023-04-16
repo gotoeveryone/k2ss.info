@@ -5,7 +5,7 @@ import type { OpenGraph, Twitter } from 'svelte-meta-tags';
 
 export const getMetaImagePath = (path?: string) => {
 	if (!path) {
-		return `${PUBLIC_SITE_URL}/wp-content/uploads/2017/08/icon.png`;
+		return `${PUBLIC_SITE_URL}/images/2017/08/icon.png`;
 	}
 	return path;
 };

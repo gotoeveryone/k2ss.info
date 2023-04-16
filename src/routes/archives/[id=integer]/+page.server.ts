@@ -15,11 +15,14 @@ export const load = async ({ params }) => {
 		const categoryResponse = await categoryRepo.getCategories({ ids: data.categories });
 		const categories = (categoryResponse.ok ? await categoryResponse.json() : []) as Category[];
 		return {
+			path: `/archives/${params.id}/`,
 			post: {
 				...data,
 				content: {
 					...data.content,
-					rendered: data.content.rendered.replace(new RegExp(`${SOURCE_URL}/`, 'g'), '/')
+					rendered: data.content.rendered
+						.replace(new RegExp(`${SOURCE_URL}/`, 'g'), '/')
+						.replace(new RegExp('/wp-content/uploads/', 'g'), '/images/')
 				},
 				categories: categories.map((c) => ({
 					...c,
