@@ -5,7 +5,7 @@
 	import { faBars } from '@fortawesome/free-solid-svg-icons';
 	import { onDestroy, onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
-	import Fa from 'svelte-fa/src/fa.svelte';
+	import Fa from 'svelte-fa';
 
 	let isOpen = false;
 	let buttonRef: HTMLButtonElement;
