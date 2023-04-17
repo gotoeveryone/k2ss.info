@@ -39,6 +39,14 @@ p {
   @apply mb-4;
 }
 
+/* NOTE: prism のスタイルがうまく当たらないケースがあるため、少なくとも画面からコードがはみ出ないようにしておく */
+pre {
+  padding: 1em;
+  padding-left: 1em;
+  margin: .5em 0;
+  overflow: auto;
+}
+
 /* 記事一覧の「続きを読む」リンク */
 .link-more {
 	@apply mt-4;
