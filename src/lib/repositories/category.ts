@@ -1,16 +1,20 @@
-import { SOURCE_URL } from '$env/static/private';
+import { client } from '$lib/clients/contentful';
 
 export class Category {
-	getCategories({ slug, ids }: { slug?: string; ids?: number[] }) {
-		const params = new URLSearchParams({
-			context: 'embed'
-		});
+	getCategories({ slug, ids }: { slug?: string; ids?: string[] }) {
+		const params = {} as Record<string, string>;
 		if (slug) {
-			params.append('slug', slug);
+			params['fields.slug'] = slug;
 		}
 		if (ids && ids.length) {
-			params.append('include', ids.join('+'));
+			params['sys.id[in]'] = ids.join(',');
 		}
-		return fetch(`${SOURCE_URL}/wp-json/wp/v2/categories?${params.toString()}`);
+		return client.getEntries({ content_type: 'categories', limit: 20, ...params }).then((res) =>
+			res.items.map((item) => ({
+				id: item.sys.id,
+				slug: item.fields.slug as string,
+				name: item.fields.name as string
+			}))
+		);
 	}
 }

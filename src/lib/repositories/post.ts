@@ -1,31 +1,61 @@
-import { SOURCE_URL } from '$env/static/private';
+import { client } from '$lib/clients/contentful';
+import type { PostItem } from 'types/post';
 
 export class Post {
 	getPosts({
-		categoryId,
+		categoryIds,
 		page = 1,
 		perPage = 20
 	}: {
-		categoryId?: number;
+		categoryIds?: string[];
 		page?: number;
 		perPage?: number;
 	}) {
-		const params = new URLSearchParams({
-			context: 'embed'
-		});
-		if (categoryId) {
-			params.append('categories', categoryId.toString());
+		const params = {} as Record<string, string>;
+		if (categoryIds?.length) {
+			params['fields.categories.sys.id[in]'] = categoryIds.join(',');
 		}
 		if (page && page > 0) {
-			params.append('page', page.toString());
+			params['skip'] = (page * (perPage || 20)).toString();
 		}
 		if (perPage && perPage > 0) {
-			params.append('per_page', perPage.toString());
+			params['limit'] = perPage.toString();
 		}
-		return fetch(`${SOURCE_URL}/wp-json/wp/v2/posts?${params.toString()}`);
+		return client
+			.getEntries({ content_type: 'posts', order: '-fields.published', ...params })
+			.then((res) => ({
+				total: res.total,
+				items: res.items.map((item) => ({
+					id: item.fields.id,
+					title: item.fields.title,
+					date: item.fields.published as string,
+					excerpt: `${(item.fields.content as any).content[0].content[0].value.slice(0, 100)} ...`
+				}))
+			}));
 	}
 
-	getPost(id: number) {
-		return fetch(`${SOURCE_URL}/wp-json/wp/v2/posts/${id}`);
+	async getPost(id: number) {
+		const items = (
+			await client.getEntries({
+				content_type: 'posts',
+				'fields.id': id
+			})
+		).items;
+		if (!items.length) {
+			return null;
+		}
+
+		const item = items[0];
+		return {
+			id: item.fields.id as number,
+			title: item.fields.title as string,
+			date: item.fields.published as string,
+			content: (item.fields.content as any).content[0].content[0].value as string,
+			categories: (item.fields.categories as any[]).map((item) => ({
+				id: item.sys.id as string,
+				slug: item.fields.slug as string,
+				name: item.fields.name as string
+			}))
+		} as PostItem;
 	}
 }

@@ -9,14 +9,14 @@
 </script>
 
 <MetaTags
-	title={getMetaTitle(data.post.title.rendered)}
+	title={getMetaTitle(data.post.title)}
 	canonical={getSiteUrl(data.path)}
 	openGraph={getOpenGraph({ type: 'article', path: data.path })}
 />
 
 <article>
 	<span class="text-xs">{dayjs(data.post.date).format('YYYY/MM/DD')}</span>
-	<h1 class="mt-2 text-2xl font-bold">{data.post.title.rendered}</h1>
+	<h1 class="mt-2 text-2xl font-bold">{data.post.title}</h1>
 	{#if data.post.categories.length > 0}
 		<div class="my-4">
 			{#each data.post.categories as category}
@@ -24,7 +24,7 @@
 			{/each}
 		</div>
 	{/if}
-	<div class="leading-8">{@html data.post.content.rendered}</div>
+	<div class="leading-8">{@html data.post.content}</div>
 </article>
 <div class="mt-8 text-center">
 	<a href="/">一覧に戻る</a>

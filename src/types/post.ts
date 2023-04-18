@@ -1,5 +1,10 @@
 import type { Category } from './category';
 
+export interface PageResponse {
+	total: number;
+	items: PostListItem[];
+}
+
 export interface EmbedItem {
 	rendered: string;
 }
@@ -7,15 +12,14 @@ export interface EmbedItem {
 export interface PostListItem {
 	id: number;
 	date: string;
-	title: EmbedItem;
-	excerpt: EmbedItem;
+	title: string;
+	excerpt: string;
 }
 
 export interface PostItem {
 	id: number;
 	date: string;
-	title: EmbedItem;
-	excerpt: EmbedItem;
-	content: EmbedItem;
+	title: string;
+	content: string;
 	categories: Category[];
 }
