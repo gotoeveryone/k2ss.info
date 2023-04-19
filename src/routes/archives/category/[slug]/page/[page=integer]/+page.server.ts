@@ -11,7 +11,7 @@ export const load = async ({ params }) => {
 		const postRepo = new PostRepo();
 		const { total, items: posts } = await postRepo.getPosts({
 			page,
-			categoryIds: [categories[0].id, ...categories[0].childCategories.map((c) => c.id)]
+			categoryIds: [categories[0].id].concat(categories[0].childCategories.map((c) => c.id))
 		});
 		if (posts.length) {
 			return {

@@ -6,10 +6,10 @@ export const load = async ({ params }) => {
 	const categoryRepo = new CategoryRepo();
 	const categories = await categoryRepo.getCategories({ slug: params.slug });
 
-	if (categories.length && categories[0].childCategories.length) {
+	if (categories.length) {
 		const postRepo = new PostRepo();
 		const { total, items: posts } = await postRepo.getPosts({
-			categoryIds: [categories[0].id, ...categories[0].childCategories.map((c) => c.id)]
+			categoryIds: [categories[0].id].concat(categories[0].childCategories.map((c) => c.id))
 		});
 		if (posts.length) {
 			return {

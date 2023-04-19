@@ -24,7 +24,7 @@
 			{/each}
 		</div>
 	{/if}
-	<div class="leading-8">{@html data.post.content}</div>
+	<div class="leading-8 post-content">{@html data.post.content}</div>
 </article>
 <div class="mt-8 text-center">
 	<a href="/">一覧に戻る</a>
@@ -77,3 +77,9 @@
 		referrerpolicy="no-referrer"
 	/>
 </svelte:head>
+
+<style>
+	.post-content :global(p) {
+		white-space: pre-wrap;
+	}
+</style>

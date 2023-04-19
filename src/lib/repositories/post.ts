@@ -56,9 +56,10 @@ export class Post {
 			id: item.fields.id as number,
 			title: item.fields.title as string,
 			date: item.fields.published as string,
-			content: ((item.fields.content as EntryFields.RichText).content[0].content[0] as Text)
-				.value as string,
-			categories: (item.fields.categories as Entry[]).map((item) => ({
+			content: (item.fields.content as EntryFields.RichText).content
+				.map((c) => `<p>${c.content.map((cc) => (cc as Text).value).join('\n')}</p>`)
+				.join(''),
+			categories: ((item.fields.categories as Entry[]) || []).map((item) => ({
 				id: item.sys.id as string,
 				slug: item.fields.slug as string,
 				name: item.fields.name as string
