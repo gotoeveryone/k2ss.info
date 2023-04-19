@@ -23,7 +23,7 @@ export const load = async ({ params }) => {
 				urlPrefix: `/archives/category/${params.slug}/${params.childslug}/`,
 				category: categories[0],
 				total,
-				totalPage: Math.ceil(total % 20),
+				totalPage: Math.ceil(total / 20),
 				posts
 			};
 		}

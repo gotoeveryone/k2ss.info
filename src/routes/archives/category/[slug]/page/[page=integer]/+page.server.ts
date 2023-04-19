@@ -11,7 +11,7 @@ export const load = async ({ params }) => {
 		const postRepo = new PostRepo();
 		const { total, items: posts } = await postRepo.getPosts({
 			page,
-			categoryIds: [categories[0].id]
+			categoryIds: [categories[0].id, ...categories[0].childCategories.map((c) => c.id)]
 		});
 		if (posts.length) {
 			return {
@@ -19,7 +19,7 @@ export const load = async ({ params }) => {
 				urlPrefix: `/archives/category/${params.slug}/`,
 				category: categories[0],
 				total,
-				totalPage: Math.ceil(total % 20),
+				totalPage: Math.ceil(total / 20),
 				currentPage: page,
 				posts
 			};

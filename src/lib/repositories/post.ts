@@ -16,20 +16,23 @@ export class Post {
 			params['fields.categories.sys.id[in]'] = categoryIds.join(',');
 		}
 		if (page && page > 0) {
-			params['skip'] = (page * (perPage || 20)).toString();
+			params['skip'] = ((page - 1) * (perPage || 20)).toString();
 		}
 		if (perPage && perPage > 0) {
 			params['limit'] = perPage.toString();
 		}
 		return client
-			.getEntries({ content_type: 'posts', order: '-fields.published', ...params })
+			.getEntries({ content_type: 'posts', order: ['-fields.published'], ...params })
 			.then((res) => ({
 				total: res.total,
 				items: res.items.map((item) => ({
-					id: item.fields.id,
-					title: item.fields.title,
+					id: item.fields.id as number,
+					title: item.fields.title as string,
 					date: item.fields.published as string,
-					excerpt: `${(item.fields.content as any).content[0].content[0].value.slice(0, 100)} ...`
+					excerpt: `${(item.fields.content as any).content[0].content[0].value.slice(
+						0,
+						100
+					)} ...` as string
 				}))
 			}));
 	}
