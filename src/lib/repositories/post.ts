@@ -1,4 +1,6 @@
 import { client } from '$lib/clients/contentful';
+import type { Text } from '@contentful/rich-text-types';
+import type { Entry, EntryFields } from 'contentful';
 import type { PostItem } from 'types/post';
 
 export class Post {
@@ -29,10 +31,11 @@ export class Post {
 					id: item.fields.id as number,
 					title: item.fields.title as string,
 					date: item.fields.published as string,
-					excerpt: `${(item.fields.content as any).content[0].content[0].value.slice(
-						0,
-						100
-					)} ...` as string
+					excerpt: `${(
+						(item.fields.content as EntryFields.RichText).content[0].content[0] as Text
+					).value
+						.replace(/(<([^>]+)>)/gi, '')
+						.slice(0, 150)} ...` as string
 				}))
 			}));
 	}
@@ -53,8 +56,9 @@ export class Post {
 			id: item.fields.id as number,
 			title: item.fields.title as string,
 			date: item.fields.published as string,
-			content: (item.fields.content as any).content[0].content[0].value as string,
-			categories: (item.fields.categories as any[]).map((item) => ({
+			content: ((item.fields.content as EntryFields.RichText).content[0].content[0] as Text)
+				.value as string,
+			categories: (item.fields.categories as Entry[]).map((item) => ({
 				id: item.sys.id as string,
 				slug: item.fields.slug as string,
 				name: item.fields.name as string
