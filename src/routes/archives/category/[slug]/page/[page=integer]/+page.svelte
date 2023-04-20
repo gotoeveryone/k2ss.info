@@ -11,7 +11,7 @@
 
 <MetaTags title={getMetaTitle(data.category.name)} canonical={getSiteUrl(data.path)} />
 
-<h1>{data.category.name} の記事一覧 ({data.total}件)</h1>
+<h1>{data.category.name} の記事一覧<span class="ml-2 text-xl">({data.total}件)</span></h1>
 {#each data.posts as post}
 	<PostItem item={post} />
 {/each}
