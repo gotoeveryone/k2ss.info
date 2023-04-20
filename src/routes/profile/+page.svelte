@@ -10,7 +10,7 @@
 
 <h1>{title}</h1>
 
-<div class="leading-8">
+<div class="leading-8 break-words">
 	<div>Kazuki Kamizuru</div>
 
 	<ul>
