@@ -35,7 +35,7 @@ export class Post {
 						(item.fields.content as EntryFields.RichText).content[0].content[0] as Text
 					).value
 						.replace(/(<([^>]+)>)/gi, '')
-						.slice(0, 150)} ...` as string
+						.slice(0, 110)} …` as string
 				}))
 			}));
 	}
