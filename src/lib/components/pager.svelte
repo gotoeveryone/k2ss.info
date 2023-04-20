@@ -1,7 +1,7 @@
 <script lang="ts">
 	export let currentPage: number;
 	export let totalPage: number;
-	export let prefix: string = '/';
+	export let prefix = '/';
 
 	// 自身と前後1ページを表示する
 	$: pages = [currentPage - 1, currentPage, currentPage + 1].filter((p) => p > 0 && p <= totalPage);

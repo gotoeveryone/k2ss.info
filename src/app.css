@@ -36,15 +36,15 @@ h3 {
 }
 
 p {
-  @apply mb-4;
+	@apply mb-4;
 }
 
 /* NOTE: prism のスタイルがうまく当たらないケースがあるため、少なくとも画面からコードがはみ出ないようにしておく */
 pre {
-  padding: 1em;
-  padding-left: 1em;
-  margin: .5em 0;
-  overflow: auto;
+	padding: 1em;
+	padding-left: 1em;
+	margin: 0.5em 0;
+	overflow: auto;
 }
 
 /* 記事一覧の「続きを読む」リンク */
@@ -54,41 +54,46 @@ pre {
 
 /* 移植したスタイル */
 .impact-text {
-  color: #00f;
-  font-size: 20px;
-  font-weight: bold;
+	color: #00f;
+	font-size: 20px;
+	font-weight: bold;
 }
 
 .important-message {
-  margin: 10px 0;
-  color: rgb(216, 69, 69);
-  font-size: 22px;
-  font-weight: bold;
+	margin: 10px 0;
+	color: rgb(216, 69, 69);
+	font-size: 22px;
+	font-weight: bold;
 }
 
 .important-message-large {
-  margin: 30px 0;
-  color: rgb(216, 69, 69);
-  font-size: 30px;
-  font-weight: bold;
+	margin: 30px 0;
+	color: rgb(216, 69, 69);
+	font-size: 30px;
+	font-weight: bold;
 }
 
 .alert-message {
-  color: rgb(216, 69, 69);
+	color: rgb(216, 69, 69);
 }
 
 .sub-message {
-  color: rgb(216, 69, 69);
-  font-size: 11px;
+	color: rgb(216, 69, 69);
+	font-size: 11px;
 }
 
 .flex-content {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: flex-start;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: flex-start;
 }
 
 .flex-content img {
-  margin: 5px;
+	margin: 5px;
+}
+
+.scrollable-table {
+	max-width: 100%;
+	overflow-x: auto;
 }
