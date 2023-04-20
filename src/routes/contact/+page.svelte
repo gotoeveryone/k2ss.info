@@ -32,6 +32,7 @@
 		<li>Depending on contents of contact, I sometimes take time to reply.</li>
 	</ul>
 
+	<!-- svelte-ignore a11y-missing-attribute -->
 	<iframe
 		src="https://docs.google.com/forms/d/e/1FAIpQLSckIJ1h8hRg56s1geieJrWMK6BMg-q0iSMSFwzZWuAvlVFDxg/viewform?embedded=true"
 		class="w-full"
