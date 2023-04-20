@@ -10,6 +10,5 @@
 	<h2 class="mt-2 text-xl font-bold hover:underline">
 		<a href={`/archives/${item.id}/`}>{item.title}</a>
 	</h2>
-	<!-- 続きを読むリンクは削除する -->
-	<div>{@html item.excerpt}</div>
+	<div class="leading-8">{@html item.excerpt}</div>
 </div>
