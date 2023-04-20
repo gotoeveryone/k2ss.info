@@ -70,7 +70,8 @@
 	</div>
 	<div class="relative flex items-stretch justify-center">
 		<a
-			class="w-9 flex items-center justify-center"
+			class="mx-2 w-8 flex items-center justify-center"
+			title="Twitter"
 			target="_blank"
 			rel="noopener noreferrer"
 			href={`https://github.com/${GITHUB_ACCOUNT}`}
@@ -78,7 +79,8 @@
 			<Fa icon={faTwitter} size="lg" />
 		</a>
 		<a
-			class="w-9 flex items-center justify-center"
+			class="mx-2 w-8 flex items-center justify-center"
+			title="GitHub"
 			target="_blank"
 			rel="noopener noreferrer"
 			href={`https://twitter.com/${TWITTER_ACCOUNT}`}
@@ -86,7 +88,8 @@
 			<Fa icon={faGithub} size="lg" />
 		</a>
 		<button
-			class="w-9 flex items-center justify-center"
+			class="ml-2 w-8 flex items-center justify-center"
+			title="メニュー"
 			bind:this={buttonRef}
 			on:click={toggleDropdown}
 		>
