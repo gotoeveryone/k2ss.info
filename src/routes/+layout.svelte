@@ -12,7 +12,7 @@
 <Analytics />
 
 <div class="flex justify-center">
-	<div class="max-w-full md:max-w-screen-xl px-8">
+	<div class="w-full max-w-full md:w-full md:max-w-screen-xl px-8">
 		<Header />
 		<main class="container py-4 md:px-4">
 			<slot />
