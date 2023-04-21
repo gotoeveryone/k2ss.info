@@ -2,14 +2,17 @@
 # https://github.com/firebase/firebase-tools
 
 name: Deploy to Firebase Hosting on merge
-# Wordpress への API リクエストが 403 エラーになってしまうため一旦デプロイは実施しない
 'on':
   push:
     branches:
-      - main__
+      - main
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
+    env:
+      CONTENTFUL_SPACE: ${{ secrets.CONTENTFUL_SPACE }}
+      CONTENTFUL_ENVIRONMENT: ${{ secrets.CONTENTFUL_ENVIRONMENT }}
+      CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
     steps:
       - uses: actions/checkout@v3
       - name: Use Node.js
