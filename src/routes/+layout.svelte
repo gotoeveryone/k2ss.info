@@ -2,12 +2,8 @@
 	import Analytics from '$lib/components/analytics.svelte';
 	import Footer from '$lib/components/footer.svelte';
 	import Header from '$lib/components/header.svelte';
-	import { getMetaTitle, getOpenGraph, getTwitter } from '$lib/modules/meta';
-	import { MetaTags } from 'svelte-meta-tags';
 	import '../app.css';
 </script>
-
-<MetaTags title={getMetaTitle()} openGraph={getOpenGraph()} twitter={getTwitter()} />
 
 <Analytics />
 

@@ -2,19 +2,24 @@
 	import type { PageServerData } from './$types';
 	import Pager from '$lib/components/pager.svelte';
 	import PostItem from '$lib/components/post-item.svelte';
-	import { getMetaTitle, getOpenGraph } from '$lib/modules/meta';
+	import { getMetaTitle, getOpenGraph, getTwitter } from '$lib/modules/meta';
 	import { getSiteUrl } from '$lib/modules/site';
 	import { MetaTags } from 'svelte-meta-tags';
 
 	export let data: PageServerData;
+
+	const metaTitle = getMetaTitle(data.category.name);
 </script>
 
 <MetaTags
-	title={getMetaTitle(data.category.name)}
+	title={metaTitle}
 	canonical={getSiteUrl(data.path)}
 	openGraph={getOpenGraph({
-		title: getMetaTitle(data.category.name),
+		title: metaTitle,
 		path: data.path
+	})}
+	twitter={getTwitter({
+		title: metaTitle
 	})}
 />
 

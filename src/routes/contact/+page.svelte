@@ -1,15 +1,19 @@
 <script lang="ts">
-	import { getMetaTitle, getOpenGraph } from '$lib/modules/meta';
+	import { getMetaTitle, getOpenGraph, getTwitter } from '$lib/modules/meta';
 	import { getSiteUrl } from '$lib/modules/site';
 	import { MetaTags } from 'svelte-meta-tags';
 
-	const title = getMetaTitle('Contact');
+	const title = 'Contact';
+	const metaTitle = getMetaTitle(title);
 </script>
 
 <MetaTags
-	{title}
+	title={metaTitle}
 	canonical={getSiteUrl('/contact/')}
-	openGraph={getOpenGraph({ title, path: '/contact/' })}
+	openGraph={getOpenGraph({ title: metaTitle, path: '/contact/' })}
+	twitter={getTwitter({
+		title: metaTitle
+	})}
 />
 
 <div class="leading-8">
