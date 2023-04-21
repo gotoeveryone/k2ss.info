@@ -15,49 +15,59 @@ export const getMetaTitle = (title?: string) => {
 	if (!title) {
 		return baseTitle;
 	}
-	return `${title} | ${baseTitle}`;
-};
-
-export const getMetaDescription = (description?: string) => {
-	if (!description) {
-		return '';
+	if (title.endsWith(baseTitle)) {
+		return title;
 	}
-	return description;
+	return `${title} | ${baseTitle}`;
 };
 
 export const getOpenGraph = (
 	{
 		type = 'website',
 		path = '',
-		title = ''
+		title = '',
+		description = ''
 	}: {
 		type?: string;
 		path?: string;
 		title?: string;
+		description?: string;
 	} = {
 		type: 'website',
 		path: '',
-		title: ''
+		title: '',
+		description: ''
 	}
 ): OpenGraph => ({
 	type,
 	url: getSiteUrl(path),
 	site_name: SITE_NAME,
-	title: title || getMetaTitle(),
-	description: getMetaDescription(),
+	title: getMetaTitle(title),
+	description,
 	images: [
 		{
 			url: getMetaImagePath(),
 			width: 512,
 			height: 512,
-			alt: getMetaTitle()
+			alt: getMetaTitle(title)
 		}
 	]
 });
 
-export const getTwitter = (): Twitter => ({
+export const getTwitter = (
+	{
+		title = '',
+		description = ''
+	}: {
+		title?: string;
+		description?: string;
+	} = {
+		title: '',
+		description: ''
+	}
+): Twitter => ({
 	site: `@${TWITTER_ACCOUNT}`,
-	title: getMetaTitle(),
-	description: getMetaDescription(),
+	title: getMetaTitle(title),
+	description,
 	image: getMetaImagePath()
 });
