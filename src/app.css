@@ -49,7 +49,7 @@ p {
 
 /* NOTE: prism のスタイルがうまく当たらないケースがあるため、少なくとも画面からコードがはみ出ないようにしておく */
 pre {
-  @apply bg-[#2d2d2d] overflow-auto;
+	@apply bg-[#2d2d2d] overflow-auto;
 	padding: 1em;
 	padding-left: 1em;
 	margin: 0.5em 0;
@@ -57,17 +57,17 @@ pre {
 
 /* 移植したスタイル */
 .impact-text {
-  @apply text-blue-500 text-xl font-bold;
+	@apply text-blue-500 text-xl font-bold;
 }
 
 .important-message {
-  @apply inline-block my-4 text-red-400;
+	@apply inline-block my-4 text-red-400;
 	font-size: 22px;
 	font-weight: bold;
 }
 
 .important-message-large {
-  @apply inline-block my-8;
+	@apply inline-block my-8;
 	color: rgb(216, 69, 69);
 	font-size: 30px;
 	font-weight: bold;
@@ -94,14 +94,14 @@ pre {
 }
 
 .scrollable-table {
-  @apply my-4 max-w-full overflow-auto;
+	@apply my-4 max-w-full overflow-auto;
 }
 
 .scrollable-table table {
-  @apply whitespace-nowrap;
+	@apply whitespace-nowrap;
 }
 
 .scrollable-table th,
 .scrollable-table td {
-  @apply px-2;
+	@apply px-2;
 }
