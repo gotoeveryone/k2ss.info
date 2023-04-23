@@ -16,7 +16,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       PUBLIC_SITE_URL: https://k2ss.info
-      SOURCE_URL: ${{ secrets.SOURCE_URL }}
       CONTENTFUL_SPACE: ${{ secrets.CONTENTFUL_SPACE }}
       CONTENTFUL_ENVIRONMENT: ${{ secrets.CONTENTFUL_ENVIRONMENT }}
       CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}

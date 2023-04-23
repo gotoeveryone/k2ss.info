@@ -1,6 +1,7 @@
+import type { Document } from '@contentful/rich-text-types';
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { client } from '$lib/clients/contentful';
-import type { Text } from '@contentful/rich-text-types';
-import type { Entry, EntryFields } from 'contentful';
+import type { Entry } from 'contentful';
 import type { PostItem } from 'types/post';
 
 export class Post {
@@ -31,9 +32,7 @@ export class Post {
 					id: item.fields.id as number,
 					title: item.fields.title as string,
 					date: item.fields.published as string,
-					excerpt: `${(
-						(item.fields.content as EntryFields.RichText).content[0].content[0] as Text
-					).value
+					excerpt: `${this.getContent(item.fields.content as Document)
 						.replace(/(<([^>]+)>)/gi, '')
 						.slice(0, 110)} …` as string
 				}))
@@ -56,14 +55,24 @@ export class Post {
 			id: item.fields.id as number,
 			title: item.fields.title as string,
 			date: item.fields.published as string,
-			content: (item.fields.content as EntryFields.RichText).content
-				.map((c) => `<p>${c.content.map((cc) => (cc as Text).value).join('\n')}</p>`)
-				.join(''),
+			content: this.getContent(item.fields.content as Document),
 			categories: ((item.fields.categories as Entry[]) || []).map((item) => ({
 				id: item.sys.id as string,
 				slug: item.fields.slug as string,
 				name: item.fields.name as string
 			}))
 		} as PostItem;
+	}
+
+	getContent(content: Document) {
+		return (
+			documentToHtmlString(content)
+				// エスケープされた文字を元に戻す
+				.replace(/&lt;/g, '<')
+				.replace(/&gt;/g, '>')
+				.replace(/&quot;/g, '"')
+				// 文末の改行をbrに変換
+				.replace(/(。|！|？)\n/g, '$1<br/>')
+		);
 	}
 }
