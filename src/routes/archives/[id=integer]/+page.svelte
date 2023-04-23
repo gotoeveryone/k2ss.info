@@ -84,7 +84,13 @@
 </svelte:head>
 
 <style>
+	.post-content :global(li > p) {
+		@apply m-0;
+	}
 	.post-content :global(p) {
-		white-space: pre-wrap;
+		@apply whitespace-pre-wrap;
+	}
+	.post-content :global(p > br:last-child) {
+		@apply hidden;
 	}
 </style>

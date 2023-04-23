@@ -11,6 +11,10 @@ ul {
 	@apply list-disc mt-2 mb-4;
 }
 
+ol {
+	@apply list-decimal mt-2 mb-4;
+}
+
 li {
 	@apply ml-8;
 }
@@ -32,7 +36,11 @@ h2 {
 }
 
 h3 {
-	@apply font-bold text-lg mt-4 mb-2;
+	@apply font-bold text-lg mt-6 mb-3;
+}
+
+h4 {
+	@apply font-bold text-base mt-2 mb-2;
 }
 
 p {
@@ -41,33 +49,25 @@ p {
 
 /* NOTE: prism のスタイルがうまく当たらないケースがあるため、少なくとも画面からコードがはみ出ないようにしておく */
 pre {
+  @apply bg-[#2d2d2d] overflow-auto;
 	padding: 1em;
 	padding-left: 1em;
 	margin: 0.5em 0;
-	overflow: auto;
-}
-
-/* 記事一覧の「続きを読む」リンク */
-.link-more {
-	@apply mt-4;
 }
 
 /* 移植したスタイル */
 .impact-text {
-	color: #00f;
-	font-size: 20px;
-	font-weight: bold;
+  @apply text-blue-500 text-xl font-bold;
 }
 
 .important-message {
-	margin: 10px 0;
-	color: rgb(216, 69, 69);
+  @apply inline-block my-4 text-red-400;
 	font-size: 22px;
 	font-weight: bold;
 }
 
 .important-message-large {
-	margin: 30px 0;
+  @apply inline-block my-8;
 	color: rgb(216, 69, 69);
 	font-size: 30px;
 	font-weight: bold;
@@ -94,6 +94,14 @@ pre {
 }
 
 .scrollable-table {
-	max-width: 100%;
-	overflow-x: auto;
+  @apply my-4 max-w-full overflow-auto;
+}
+
+.scrollable-table table {
+  @apply whitespace-nowrap;
+}
+
+.scrollable-table th,
+.scrollable-table td {
+  @apply px-2;
 }

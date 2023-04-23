@@ -1,5 +1,4 @@
 import { error } from '@sveltejs/kit';
-import { SOURCE_URL } from '$env/static/private';
 import { Category as CategoryRepo } from '$lib/repositories/category';
 import { Post as PostRepo } from '$lib/repositories/post';
 import type { PostItem } from 'types/post';
@@ -15,10 +14,6 @@ export const load = async ({ params }) => {
 			path: `/archives/${params.id}/`,
 			post: {
 				...post,
-				content: post.content
-					.replace(new RegExp(`i0.wp.com/`, 'g'), '')
-					.replace(new RegExp(`${SOURCE_URL}/`, 'g'), '/')
-					.replace(new RegExp('/wp-content/uploads/', 'g'), '/images/'),
 				categories
 			} as PostItem
 		};
