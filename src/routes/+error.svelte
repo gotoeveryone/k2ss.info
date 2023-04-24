@@ -1,7 +1,8 @@
-<script>
-	import { page } from '$app/stores';
+<script lang="ts">
+	export let status = 404;
+	export let message = 'ページが見つかりません';
 </script>
 
-<h1>{$page.status}</h1>
+<h1>{status}</h1>
 
-<p>{$page.error?.message}</p>
+<p>{message}</p>
