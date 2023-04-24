@@ -18,8 +18,12 @@ const config = {
 			precompress: false,
 			strict: true
 		}),
+		alias: {
+			$routes: './src/routes'
+		},
 		prerender: {
 			entries: [
+				'/404/',
 				'/archives/category/it/',
 				'/archives/category/it/golang/',
 				'/archives/category/it/python/',

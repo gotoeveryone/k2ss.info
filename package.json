@@ -5,7 +5,7 @@
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
-		"postbuild": "svelte-sitemap --domain https://k2ss.info --trailing-slashes",
+		"postbuild": "mv build/404/index.html build/404.html && svelte-sitemap --domain https://k2ss.info --trailing-slashes --ignore '**/404**'",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
