@@ -1,6 +1,6 @@
 import type { Document } from '@contentful/rich-text-types';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
-import { client } from '$lib/clients/contentful';
+import { client, previewClient } from '$lib/clients/contentful';
 import type { Entry } from 'contentful';
 import type { PostItem } from 'types/post';
 
@@ -42,6 +42,31 @@ export class Post {
 	async getPost(id: number) {
 		const items = (
 			await client.getEntries({
+				content_type: 'posts',
+				'fields.id': id
+			})
+		).items;
+		if (!items.length) {
+			return null;
+		}
+
+		const item = items[0];
+		return {
+			id: item.fields.id as number,
+			title: item.fields.title as string,
+			date: item.fields.published as string,
+			content: this.getContent(item.fields.content as Document),
+			categories: ((item.fields.categories as Entry[]) || []).map((item) => ({
+				id: item.sys.id as string,
+				slug: item.fields.slug as string,
+				name: item.fields.name as string
+			}))
+		} as PostItem;
+	}
+
+	async getPreviewPost(id: number) {
+		const items = (
+			await previewClient.getEntries({
 				content_type: 'posts',
 				'fields.id': id
 			})
