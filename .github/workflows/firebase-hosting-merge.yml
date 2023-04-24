@@ -19,6 +19,8 @@ jobs:
       CONTENTFUL_SPACE: ${{ secrets.CONTENTFUL_SPACE }}
       CONTENTFUL_ENVIRONMENT: ${{ secrets.CONTENTFUL_ENVIRONMENT }}
       CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
+      CONTENTFUL_PREVIEW_TOKEN: ${{ secrets.CONTENTFUL_PREVIEW_TOKEN }}
+      PREVIEW_SECRET: ${{ secrets.PREVIEW_SECRET }}
     steps:
       - uses: actions/checkout@v3
       - name: Use Node.js
