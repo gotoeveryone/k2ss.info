@@ -1,6 +1,8 @@
 <script lang="ts">
+	import MarkdownAnchor from '$lib/components/anchor.svelte';
 	import { getMetaTitle, getOpenGraph, getTwitter } from '$lib/modules/meta';
 	import { getSiteUrl } from '$lib/modules/site';
+	import Markdown from '@magidoc/plugin-svelte-marked';
 	import dayjs from 'dayjs';
 	import { MetaTags } from 'svelte-meta-tags';
 	import type { PageServerData } from './$types';
@@ -29,7 +31,9 @@
 			{/each}
 		</div>
 	{/if}
-	<div class="leading-8 post-content">{@html data.post.content}</div>
+	<div class="leading-8 post-content">
+		<Markdown source={data.post.content} renderers={{ link: MarkdownAnchor }} />
+	</div>
 </article>
 <div class="mt-8 text-center">
 	<a href="/">一覧に戻る</a>
@@ -82,15 +86,3 @@
 		referrerpolicy="no-referrer"
 	/>
 </svelte:head>
-
-<style>
-	.post-content :global(li > p) {
-		@apply m-0;
-	}
-	.post-content :global(p) {
-		@apply whitespace-pre-wrap;
-	}
-	.post-content :global(p > br:last-child) {
-		@apply hidden;
-	}
-</style>
