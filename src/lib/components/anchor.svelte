@@ -7,7 +7,7 @@
 	export let renderers: Renderers;
 	export let options: MarkdownOptions;
 
-	$: target = token.href.startsWith('/') ? '_self' : '_blank';
+	$: target = token.href.startsWith('http') ? '_blank' : '_self';
 </script>
 
 <a href={token.href} title={token.title} {target}>
