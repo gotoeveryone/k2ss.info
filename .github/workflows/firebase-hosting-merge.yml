@@ -16,7 +16,7 @@ on:
       - upload_entry
 jobs:
   build_and_deploy:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event.client_payload.deploy }}
     runs-on: ubuntu-latest
     env:
       PUBLIC_SITE_URL: https://k2ss.info
