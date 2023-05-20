@@ -43,8 +43,8 @@ h4 {
 	@apply font-bold text-base mt-2 mb-2;
 }
 
-p {
-	@apply mb-4;
+p:not(:first-child) {
+	@apply mt-4;
 }
 
 /* NOTE: prism のスタイルがうまく当たらないケースがあるため、少なくとも画面からコードがはみ出ないようにしておく */
@@ -55,33 +55,11 @@ pre {
 	margin: 0.5em 0;
 }
 
+code {
+	@apply bg-[#2d2d2d];
+}
+
 /* 移植したスタイル */
-.impact-text {
-	@apply text-blue-500 text-xl font-bold;
-}
-
-.important-message {
-	@apply inline-block my-4 text-red-400;
-	font-size: 22px;
-	font-weight: bold;
-}
-
-.important-message-large {
-	@apply inline-block my-8;
-	color: rgb(216, 69, 69);
-	font-size: 30px;
-	font-weight: bold;
-}
-
-.alert-message {
-	color: rgb(216, 69, 69);
-}
-
-.sub-message {
-	color: rgb(216, 69, 69);
-	font-size: 11px;
-}
-
 .flex-content {
 	display: flex;
 	flex-wrap: wrap;
