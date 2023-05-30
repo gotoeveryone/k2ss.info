@@ -1,7 +1,7 @@
 import { client, previewClient } from '$lib/clients/contentful';
 import type { Entry } from 'contentful';
 import { marked } from 'marked';
-import type { PostItem } from 'types/post';
+import type { PostItem, PostLiteResponse } from 'types/post';
 
 export class Post {
 	getPosts({
@@ -12,7 +12,7 @@ export class Post {
 		categoryIds?: string[];
 		page?: number;
 		perPage?: number;
-	}) {
+	}): Promise<PostLiteResponse> {
 		const params = {} as Record<string, string>;
 		if (categoryIds?.length) {
 			params['fields.categories.sys.id[in]'] = categoryIds.join(',');
@@ -28,7 +28,7 @@ export class Post {
 			.then((res) => ({
 				total: res.total,
 				items: res.items.map((item) => ({
-					id: item.fields.id as number,
+					slug: item.fields.slug as string,
 					title: item.fields.title as string,
 					date: item.fields.published as string,
 					excerpt: `${marked(item.fields.body as string)
@@ -38,11 +38,11 @@ export class Post {
 			}));
 	}
 
-	async getPost(id: number) {
+	async getPost(slug: string) {
 		const items = (
 			await client.getEntries({
 				content_type: 'posts',
-				'fields.id': id
+				'fields.slug': slug
 			})
 		).items;
 		if (!items.length) {
@@ -51,7 +51,7 @@ export class Post {
 
 		const item = items[0];
 		return {
-			id: item.fields.id as number,
+			slug: item.fields.slug as string,
 			title: item.fields.title as string,
 			date: item.fields.published as string,
 			content: item.fields.body as string,
@@ -63,11 +63,11 @@ export class Post {
 		} as PostItem;
 	}
 
-	async getPreviewPost(id: number) {
+	async getPreviewPost(slug: string) {
 		const items = (
 			await previewClient.getEntries({
 				content_type: 'posts',
-				'fields.id': id
+				'fields.slug': slug
 			})
 		).items;
 		if (!items.length) {
@@ -76,7 +76,7 @@ export class Post {
 
 		const item = items[0];
 		return {
-			id: item.fields.id as number,
+			slug: item.fields.slug as string,
 			title: item.fields.title as string,
 			date: item.fields.published as string,
 			content: item.fields.body as string,
