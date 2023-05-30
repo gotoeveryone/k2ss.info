@@ -98,7 +98,7 @@
 			<Fa icon={faBars} size="lg" />
 		</button>
 		<div
-			class={`fixed z-10 min-w-[250px] h-screen m-0 p-0 top-0 right-0 overflow-y-auto transition-transform bg-gray-900 opacity-90 ${
+			class={`fixed z-10 min-w-[150px] md:min-w-[250px] h-screen m-0 p-0 top-0 right-0 overflow-y-auto overscroll-y-none transition-transform bg-gray-900 opacity-90 ${
 				isOpen ? 'translate-x-0' : 'translate-x-full'
 			}`}
 			tabindex="-1"
@@ -112,7 +112,7 @@
 					<Fa icon={faTimes} size="lg" />
 				</button>
 			</div>
-			<ul class="m-0 p-0 overflow-y-auto border border-black">
+			<ul class="m-0 p-0 border border-black text-base">
 				<li class="list-none m-0 hover:bg-gray-700">
 					<a class="px-4 py-3 block" href="/">最近の記事</a>
 				</li>
