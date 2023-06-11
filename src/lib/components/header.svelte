@@ -1,10 +1,9 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import { GITHUB_ACCOUNT, SITE_NAME, TWITTER_ACCOUNT } from '$lib/constants';
+	import { GITHUB_ACCOUNT, SITE_DESCRIPTION, SITE_NAME, TWITTER_ACCOUNT } from '$lib/constants';
 	import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
-	import { faBars } from '@fortawesome/free-solid-svg-icons';
+	import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 	import { onDestroy, onMount } from 'svelte';
-	import { fly } from 'svelte/transition';
 	import Fa from 'svelte-fa';
 
 	let isOpen = false;
@@ -64,11 +63,14 @@
 	});
 </script>
 
-<header class="w-full h-8 mt-4 mb-2 flex items-center justify-between">
+<header
+	class="sticky z-10 top-0 w-full h-[60px] md:h-[72px] bg-gray-800 flex items-center justify-between"
+>
 	<div>
-		<a class="font-bold text-xl no-underline hover:underline" href="/">{SITE_NAME}</a>
+		<a class="block font-bold text-xl no-underline hover:underline" href="/">{SITE_NAME}</a>
+		<span class="text-sm">{SITE_DESCRIPTION}</span>
 	</div>
-	<div class="relative flex items-stretch justify-center">
+	<div class="flex items-stretch justify-center">
 		<a
 			class="mx-2 w-8 flex items-center justify-center"
 			title="Twitter"
@@ -95,11 +97,22 @@
 		>
 			<Fa icon={faBars} size="lg" />
 		</button>
-		{#if isOpen}
-			<ul
-				transition:fly={{ duration: 500 }}
-				class="absolute z-10 min-w-[200px] m-0 p-0 top-8 right-0 bg-gray-600 border border-black rounded"
-			>
+		<div
+			class={`fixed z-10 min-w-[150px] md:min-w-[250px] h-screen m-0 p-0 top-0 right-0 overflow-y-auto overscroll-y-none transition-transform bg-gray-900 opacity-90 ${
+				isOpen ? 'translate-x-0' : 'translate-x-full'
+			}`}
+			tabindex="-1"
+		>
+			<div class="flex items-center justify-end p-2">
+				<button
+					type="button"
+					class="p-2 rounded text-lg hover:bg-gray-700"
+					on:click={closeDropdown}
+				>
+					<Fa icon={faTimes} size="lg" />
+				</button>
+			</div>
+			<ul class="m-0 p-0 border border-black text-base">
 				<li class="list-none m-0 hover:bg-gray-700">
 					<a class="px-4 py-3 block" href="/">最近の記事</a>
 				</li>
@@ -134,6 +147,6 @@
 					<a class="px-4 py-3 block" href="/contact/">Contact</a>
 				</li>
 			</ul>
-		{/if}
+		</div>
 	</div>
 </header>
