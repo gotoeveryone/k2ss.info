@@ -54,7 +54,7 @@ export class Post {
 			slug: item.fields.slug as string,
 			title: item.fields.title as string,
 			date: item.fields.published as string,
-			content: item.fields.body as string,
+			content: item.fields.content as string,
 			categories: ((item.fields.categories as Entry[]) || []).map((item) => ({
 				id: item.sys.id as string,
 				slug: item.fields.slug as string,
@@ -79,7 +79,7 @@ export class Post {
 			slug: item.fields.slug as string,
 			title: item.fields.title as string,
 			date: item.fields.published as string,
-			content: item.fields.body as string,
+			content: item.fields.content as string,
 			categories: ((item.fields.categories as Entry[]) || []).map((item) => ({
 				id: item.sys.id as string,
 				slug: item.fields.slug as string,
