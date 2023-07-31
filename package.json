@@ -16,7 +16,7 @@
 	"devDependencies": {
 		"@fortawesome/free-brands-svg-icons": "^6.4.0",
 		"@fortawesome/free-solid-svg-icons": "^6.4.0",
-		"@magidoc/plugin-svelte-marked": "^3.6.4",
+		"@magidoc/plugin-svelte-marked": "^4.0.0",
 		"@sveltejs/adapter-static": "^2.0.2",
 		"@sveltejs/kit": "^1.22.3",
 		"@testing-library/svelte": "^3.2.2",
