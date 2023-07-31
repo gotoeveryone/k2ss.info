@@ -27,7 +27,7 @@
 		"contentful": "^10.3.5",
 		"dayjs": "^1.11.9",
 		"eslint": "^8.43.0",
-		"eslint-config-prettier": "^8.5.0",
+		"eslint-config-prettier": "^8.9.0",
 		"eslint-plugin-svelte3": "^4.0.0",
 		"jsdom": "^22.1.0",
 		"marked": "^4.3.0",
