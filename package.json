@@ -23,7 +23,7 @@
 		"@types/marked": "^4.3.0",
 		"@typescript-eslint/eslint-plugin": "^5.62.0",
 		"@typescript-eslint/parser": "^5.62.0",
-		"autoprefixer": "^10.4.15",
+		"autoprefixer": "^10.4.16",
 		"contentful": "^10.3.5",
 		"dayjs": "^1.11.9",
 		"eslint": "^8.49.0",
