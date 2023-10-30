@@ -24,7 +24,7 @@
 		"@typescript-eslint/eslint-plugin": "^6.7.2",
 		"@typescript-eslint/parser": "^6.7.2",
 		"autoprefixer": "^10.4.16",
-		"contentful": "^10.6.4",
+		"contentful": "^10.6.5",
 		"dayjs": "^1.11.10",
 		"eslint": "^8.52.0",
 		"eslint-config-prettier": "^9.0.0",
