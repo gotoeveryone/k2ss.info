@@ -18,7 +18,7 @@
 		"@fortawesome/free-solid-svg-icons": "^6.4.2",
 		"@magidoc/plugin-svelte-marked": "^4.1.0",
 		"@sveltejs/adapter-static": "^2.0.3",
-		"@sveltejs/kit": "^1.27.1",
+		"@sveltejs/kit": "^1.27.3",
 		"@testing-library/svelte": "^4.0.3",
 		"@types/marked": "^4.3.0",
 		"@typescript-eslint/eslint-plugin": "^6.7.2",
