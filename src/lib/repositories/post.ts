@@ -31,7 +31,7 @@ export class Post {
 					slug: item.fields.slug as string,
 					title: item.fields.title as string,
 					date: item.fields.published as string,
-					excerpt: `${marked(item.fields.body as string)
+					excerpt: `${(marked(item.fields.body as string, { async: false }) as string)
 						.replace(/(<([^>]+)>)/gi, '')
 						.slice(0, 110)} …` as string
 				}))

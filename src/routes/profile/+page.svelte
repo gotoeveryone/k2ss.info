@@ -1,8 +1,7 @@
 <script lang="ts">
-	import MarkdownAnchor from '$lib/components/anchor.svelte';
+	import Markdown from '$lib/components/markdown.svelte';
 	import { getMetaTitle, getOpenGraph, getTwitter } from '$lib/modules/meta';
 	import { getSiteUrl } from '$lib/modules/site';
-	import Markdown from '@magidoc/plugin-svelte-marked';
 	import { MetaTags } from 'svelte-meta-tags';
 	import type { PageServerData } from './$types';
 
@@ -23,5 +22,5 @@
 <h1>{data.page.title}</h1>
 
 <div class="leading-8 break-words">
-	<Markdown source={data.page.content} renderers={{ link: MarkdownAnchor }} />
+	<Markdown content={data.page.content} />
 </div>
