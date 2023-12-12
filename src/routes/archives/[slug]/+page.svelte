@@ -1,13 +1,19 @@
 <script lang="ts">
-	import MarkdownAnchor from '$lib/components/anchor.svelte';
+	import Markdown from '$lib/components/markdown.svelte';
 	import { getMetaTitle, getOpenGraph, getTwitter } from '$lib/modules/meta';
 	import { getSiteUrl } from '$lib/modules/site';
-	import Markdown from '@magidoc/plugin-svelte-marked';
 	import dayjs from 'dayjs';
+	import { marked } from 'marked';
 	import { MetaTags } from 'svelte-meta-tags';
 	import type { PageServerData } from './$types';
 
 	export let data: PageServerData;
+
+	const renderer = new marked.Renderer();
+	renderer.link = (href, title, text) => {
+		const target = href.startsWith('http') ? '_blank' : '_self';
+		return `<a href="${href}" title="${title || ''}" target="${target}">${text}</a>`;
+	};
 
 	const metaTitle = getMetaTitle(data.post.title);
 </script>
@@ -32,7 +38,7 @@
 		</div>
 	{/if}
 	<div class="leading-8 post-content">
-		<Markdown source={data.post.content} renderers={{ link: MarkdownAnchor }} />
+		<Markdown content={data.post.content} />
 	</div>
 </article>
 <div class="mt-8 text-center">
