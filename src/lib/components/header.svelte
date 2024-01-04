@@ -144,6 +144,9 @@
 					<a class="px-4 py-3 block" href="/profile/">Profile</a>
 				</li>
 				<li class="list-none m-0 hover:bg-gray-700">
+					<a class="px-4 py-3 block" href="/privacy-policy/">Privacy policy</a>
+				</li>
+				<li class="list-none m-0 hover:bg-gray-700">
 					<a class="px-4 py-3 block" href="/contact/">Contact</a>
 				</li>
 			</ul>
