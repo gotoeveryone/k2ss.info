@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
 	import { GITHUB_ACCOUNT, SITE_DESCRIPTION, SITE_NAME, TWITTER_ACCOUNT } from '$lib/constants';
-	import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
+	import { faGithub, faXTwitter } from '@fortawesome/free-brands-svg-icons';
 	import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 	import { onDestroy, onMount } from 'svelte';
 	import Fa from 'svelte-fa';
@@ -78,7 +78,7 @@
 			rel="noopener noreferrer"
 			href={`https://github.com/${GITHUB_ACCOUNT}`}
 		>
-			<Fa icon={faTwitter} size="lg" />
+			<Fa icon={faXTwitter} size="lg" />
 		</a>
 		<a
 			class="mx-2 w-8 flex items-center justify-center"
