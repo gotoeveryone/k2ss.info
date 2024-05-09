@@ -1,21 +1,23 @@
 <script lang="ts">
-	import Markdown from '$lib/components/markdown.svelte';
-	import { getMetaTitle, getOpenGraph, getTwitter } from '$lib/modules/meta';
-	import { getSiteUrl } from '$lib/modules/site';
-	import dayjs from 'dayjs';
-	import { marked } from 'marked';
-	import { MetaTags } from 'svelte-meta-tags';
-	import type { PageServerData } from './$types';
+import Markdown from "$lib/components/markdown.svelte";
+import { getMetaTitle, getOpenGraph, getTwitter } from "$lib/modules/meta";
+import { getSiteUrl } from "$lib/modules/site";
+import dayjs from "dayjs";
+import { marked } from "marked";
+import { MetaTags } from "svelte-meta-tags";
+import type { PageServerData } from "./$types";
 
-	export let data: PageServerData;
+export let data: PageServerData;
 
-	const renderer = new marked.Renderer();
-	renderer.link = (href, title, text) => {
-		const target = href.startsWith('http') ? '_blank' : '_self';
-		return `<a href="${href}" title="${title || ''}" target="${target}">${text}</a>`;
-	};
+const renderer = new marked.Renderer();
+renderer.link = (href, title, text) => {
+	const target = href.startsWith("http") ? "_blank" : "_self";
+	return `<a href="${href}" title="${
+		title || ""
+	}" target="${target}">${text}</a>`;
+};
 
-	const metaTitle = getMetaTitle(data.post.title);
+const metaTitle = getMetaTitle(data.post.title);
 </script>
 
 <MetaTags

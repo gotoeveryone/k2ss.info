@@ -1,6 +1,6 @@
-import { error } from '@sveltejs/kit';
-import { Category as CategoryRepo } from '$lib/repositories/category';
-import { Post as PostRepo } from '$lib/repositories/post';
+import { error } from "@sveltejs/kit";
+import { Category as CategoryRepo } from "$lib/repositories/category";
+import { Post as PostRepo } from "$lib/repositories/post";
 
 export const load = async ({ params }) => {
 	const categoryRepo = new CategoryRepo();
@@ -11,7 +11,9 @@ export const load = async ({ params }) => {
 		const postRepo = new PostRepo();
 		const { total, items: posts } = await postRepo.getPosts({
 			page,
-			categoryIds: [categories[0].id].concat(categories[0].childCategories.map((c) => c.id))
+			categoryIds: [categories[0].id].concat(
+				categories[0].childCategories.map((c) => c.id),
+			),
 		});
 		if (posts.length) {
 			return {
@@ -21,10 +23,10 @@ export const load = async ({ params }) => {
 				total,
 				totalPage: Math.ceil(total / 20),
 				currentPage: page,
-				posts
+				posts,
 			};
 		}
 	}
 
-	throw error(404, 'Not found');
+	throw error(404, "Not found");
 };

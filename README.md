@@ -18,3 +18,15 @@ $ cp .env.example .env
 ```bash
 $ npm run dev
 ```
+
+## Lint
+
+```bash
+$ npm run lint
+```
+
+## Format
+
+```bash
+$ npm run format
+```
