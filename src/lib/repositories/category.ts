@@ -1,21 +1,24 @@
-import { client } from '$lib/clients/contentful';
-import type { Entry } from 'contentful';
-import type { Category as CategoryItem } from 'types/category';
+import { client } from "$lib/clients/contentful";
+import type { Entry } from "contentful";
+import type { Category as CategoryItem } from "types/category";
 
 export class Category {
-	getCategories({ slug, ids }: { slug?: string; ids?: string[] }): Promise<CategoryItem[]> {
+	getCategories({
+		slug,
+		ids,
+	}: { slug?: string; ids?: string[] }): Promise<CategoryItem[]> {
 		const params = {} as Record<string, string>;
 		if (slug) {
-			params['fields.slug'] = slug;
+			params["fields.slug"] = slug;
 		}
 		if (ids && ids.length) {
-			params['sys.id[in]'] = ids.join(',');
+			params["sys.id[in]"] = ids.join(",");
 		}
 		return client
 			.getEntries({
-				content_type: 'categories',
+				content_type: "categories",
 				limit: 20,
-				...params
+				...params,
 			})
 			.then((res) => {
 				return res.items.map((item) => ({
@@ -23,13 +26,15 @@ export class Category {
 					slug: item.fields.slug as string,
 					name: item.fields.name as string,
 					link: this.createLink(item),
-					childCategories: ((item.fields.childCategories as Entry[]) || []).map((c) => ({
-						id: c.sys.id,
-						slug: c.fields.slug as string,
-						name: c.fields.name as string,
-						link: this.createLink(c),
-						childCategories: []
-					}))
+					childCategories: ((item.fields.childCategories as Entry[]) || []).map(
+						(c) => ({
+							id: c.sys.id,
+							slug: c.fields.slug as string,
+							name: c.fields.name as string,
+							link: this.createLink(c),
+							childCategories: [],
+						}),
+					),
 				}));
 			});
 	}

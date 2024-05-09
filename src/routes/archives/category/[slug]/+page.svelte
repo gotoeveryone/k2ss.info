@@ -1,14 +1,14 @@
 <script lang="ts">
-	import type { PageServerData } from './$types';
-	import { getMetaTitle, getOpenGraph, getTwitter } from '$lib/modules/meta';
-	import { getSiteUrl } from '$lib/modules/site';
-	import Pager from '$lib/components/pager.svelte';
-	import PostItem from '$lib/components/post-item.svelte';
-	import { MetaTags } from 'svelte-meta-tags';
+import type { PageServerData } from "./$types";
+import { getMetaTitle, getOpenGraph, getTwitter } from "$lib/modules/meta";
+import { getSiteUrl } from "$lib/modules/site";
+import Pager from "$lib/components/pager.svelte";
+import PostItem from "$lib/components/post-item.svelte";
+import { MetaTags } from "svelte-meta-tags";
 
-	export let data: PageServerData;
+export let data: PageServerData;
 
-	const metaTitle = getMetaTitle(data.category.name);
+const metaTitle = getMetaTitle(data.category.name);
 </script>
 
 <MetaTags

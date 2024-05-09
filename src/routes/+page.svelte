@@ -1,13 +1,13 @@
 <script lang="ts">
-	import PostItem from '$lib/components/post-item.svelte';
-	import { getMetaTitle, getOpenGraph, getTwitter } from '$lib/modules/meta';
-	import { getSiteUrl } from '$lib/modules/site';
-	import { MetaTags } from 'svelte-meta-tags';
-	import type { PageServerData } from './$types';
+import PostItem from "$lib/components/post-item.svelte";
+import { getMetaTitle, getOpenGraph, getTwitter } from "$lib/modules/meta";
+import { getSiteUrl } from "$lib/modules/site";
+import { MetaTags } from "svelte-meta-tags";
+import type { PageServerData } from "./$types";
 
-	export let data: PageServerData;
+export let data: PageServerData;
 
-	const description = '主に囲碁・プログラミングについて書いています';
+const description = "主に囲碁・プログラミングについて書いています";
 </script>
 
 <MetaTags

@@ -1,66 +1,73 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
-	import { GITHUB_ACCOUNT, SITE_DESCRIPTION, SITE_NAME, TWITTER_ACCOUNT } from '$lib/constants';
-	import { faGithub, faXTwitter } from '@fortawesome/free-brands-svg-icons';
-	import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
-	import { onDestroy, onMount } from 'svelte';
-	import Fa from 'svelte-fa';
+import { browser } from "$app/environment";
+import {
+	GITHUB_ACCOUNT,
+	SITE_DESCRIPTION,
+	SITE_NAME,
+	TWITTER_ACCOUNT,
+} from "$lib/constants";
+import { faGithub, faXTwitter } from "@fortawesome/free-brands-svg-icons";
+import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { onDestroy, onMount } from "svelte";
+import Fa from "svelte-fa";
 
-	let isOpen = false;
-	let buttonRef: HTMLButtonElement;
+let isOpen = false;
+let buttonRef: HTMLButtonElement;
 
-	const toggleDropdown = () => {
-		isOpen = !isOpen;
-	};
+const toggleDropdown = () => {
+	isOpen = !isOpen;
+};
 
-	const closeDropdown = () => {
-		isOpen = false;
-	};
+const closeDropdown = () => {
+	isOpen = false;
+};
 
-	const handleClickToCloseDropdown = (event: Event) => {
-		if (!isOpen || buttonRef?.contains(event.target as Node)) {
-			return;
-		}
-		closeDropdown();
-	};
+const handleClickToCloseDropdown = (event: Event) => {
+	if (!isOpen || buttonRef?.contains(event.target as Node)) {
+		return;
+	}
+	closeDropdown();
+};
 
-	const postItems = [
-		{
-			slug: 'it',
-			text: 'IT',
-			subItems: [
-				{ slug: 'golang', text: 'Golang' },
-				{ slug: 'python', text: 'Python' },
-				{ slug: 'javascript', text: 'JavaScript' },
-				{ slug: 'php', text: 'PHP' },
-				{ slug: 'operation', text: 'インフラ・運用' }
-			]
-		},
-		{ slug: 'igo', text: '囲碁', subItems: [] },
-		{
-			slug: 'others',
-			text: 'その他',
-			subItems: [
-				{ slug: 'jobs', text: '仕事' },
-				{ slug: 'books', text: '本・漫画' },
-				{ slug: 'certificates', text: '資格' },
-				{ slug: 'meals', text: '料理' },
-				{ slug: 'travels', text: '旅行' }
-			]
-		}
-	];
+const postItems = [
+	{
+		slug: "it",
+		text: "IT",
+		subItems: [
+			{ slug: "golang", text: "Golang" },
+			{ slug: "python", text: "Python" },
+			{ slug: "javascript", text: "JavaScript" },
+			{ slug: "php", text: "PHP" },
+			{ slug: "operation", text: "インフラ・運用" },
+		],
+	},
+	{ slug: "igo", text: "囲碁", subItems: [] },
+	{
+		slug: "others",
+		text: "その他",
+		subItems: [
+			{ slug: "jobs", text: "仕事" },
+			{ slug: "books", text: "本・漫画" },
+			{ slug: "certificates", text: "資格" },
+			{ slug: "meals", text: "料理" },
+			{ slug: "travels", text: "旅行" },
+		],
+	},
+];
 
-	onMount(() => {
-		if (browser) {
-			window.addEventListener('click', handleClickToCloseDropdown, { passive: true });
-		}
-	});
+onMount(() => {
+	if (browser) {
+		window.addEventListener("click", handleClickToCloseDropdown, {
+			passive: true,
+		});
+	}
+});
 
-	onDestroy(() => {
-		if (browser) {
-			window.removeEventListener('click', handleClickToCloseDropdown);
-		}
-	});
+onDestroy(() => {
+	if (browser) {
+		window.removeEventListener("click", handleClickToCloseDropdown);
+	}
+});
 </script>
 
 <header

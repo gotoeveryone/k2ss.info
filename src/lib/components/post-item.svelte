@@ -1,8 +1,8 @@
 <script lang="ts">
-	import dayjs from 'dayjs';
-	import type { PostListItem } from 'types/post';
+import dayjs from "dayjs";
+import type { PostListItem } from "types/post";
 
-	export let item: PostListItem;
+export let item: PostListItem;
 </script>
 
 <div class="my-8">

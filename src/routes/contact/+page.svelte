@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { getMetaTitle, getOpenGraph, getTwitter } from '$lib/modules/meta';
-	import { getSiteUrl } from '$lib/modules/site';
-	import { MetaTags } from 'svelte-meta-tags';
+import { getMetaTitle, getOpenGraph, getTwitter } from "$lib/modules/meta";
+import { getSiteUrl } from "$lib/modules/site";
+import { MetaTags } from "svelte-meta-tags";
 
-	const title = 'Contact';
-	const metaTitle = getMetaTitle(title);
+const title = "Contact";
+const metaTitle = getMetaTitle(title);
 </script>
 
 <MetaTags

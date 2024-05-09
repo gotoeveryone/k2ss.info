@@ -1,7 +1,7 @@
-import { PUBLIC_SITE_URL } from '$env/static/public';
-import { SITE_NAME, TWITTER_ACCOUNT } from '$lib/constants';
-import { getSiteUrl } from '$lib/modules/site';
-import type { OpenGraph, Twitter } from 'svelte-meta-tags';
+import { PUBLIC_SITE_URL } from "$env/static/public";
+import { SITE_NAME, TWITTER_ACCOUNT } from "$lib/constants";
+import { getSiteUrl } from "$lib/modules/site";
+import type { OpenGraph, Twitter } from "svelte-meta-tags";
 
 export const getMetaImagePath = (path?: string) => {
 	if (!path) {
@@ -23,25 +23,25 @@ export const getMetaTitle = (title?: string) => {
 
 export const getOpenGraph = (
 	{
-		type = 'website',
-		path = '',
-		title = '',
-		description = ''
+		type = "website",
+		path = "",
+		title = "",
+		description = "",
 	}: {
 		type?: string;
 		path?: string;
 		title?: string;
 		description?: string;
 	} = {
-		type: 'website',
-		path: '',
-		title: '',
-		description: ''
-	}
+		type: "website",
+		path: "",
+		title: "",
+		description: "",
+	},
 ): OpenGraph => ({
 	type,
 	url: getSiteUrl(path),
-	site_name: SITE_NAME,
+	siteName: SITE_NAME,
 	title: getMetaTitle(title),
 	description,
 	images: [
@@ -49,25 +49,25 @@ export const getOpenGraph = (
 			url: getMetaImagePath(),
 			width: 512,
 			height: 512,
-			alt: getMetaTitle(title)
-		}
-	]
+			alt: getMetaTitle(title),
+		},
+	],
 });
 
 export const getTwitter = (
 	{
-		title = '',
-		description = ''
+		title = "",
+		description = "",
 	}: {
 		title?: string;
 		description?: string;
 	} = {
-		title: '',
-		description: ''
-	}
+		title: "",
+		description: "",
+	},
 ): Twitter => ({
 	site: `@${TWITTER_ACCOUNT}`,
 	title: getMetaTitle(title),
 	description,
-	image: getMetaImagePath()
+	image: getMetaImagePath(),
 });
