@@ -16,8 +16,8 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.7.3",
-		"@fortawesome/free-brands-svg-icons": "^6.5.1",
-		"@fortawesome/free-solid-svg-icons": "^6.5.1",
+		"@fortawesome/free-brands-svg-icons": "^6.5.2",
+		"@fortawesome/free-solid-svg-icons": "^6.5.2",
 		"@sveltejs/adapter-static": "^3.0.1",
 		"@sveltejs/kit": "^2.5.7",
 		"@testing-library/svelte": "^5.1.0",
