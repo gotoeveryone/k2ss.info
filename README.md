@@ -1,6 +1,6 @@
 # k2ss.info
 
-[日々、邁進](https://k2ss.info) の移行検証用リポジトリ
+[日々、邁進](https://k2ss.info) のコード
 
 ## Requirements
 
