@@ -74,16 +74,18 @@ onDestroy(() => {
 	class="sticky z-10 top-0 w-full h-[60px] md:h-[72px] bg-gray-800 flex items-center justify-between"
 >
 	<div>
-		<a class="block font-bold text-xl no-underline hover:underline" href="/">{SITE_NAME}</a>
+		<a class="block font-bold text-xl no-underline hover:underline" href="/"
+			>{SITE_NAME}</a
+		>
 		<span class="text-sm">{SITE_DESCRIPTION}</span>
 	</div>
 	<div class="flex items-stretch justify-center">
 		<a
 			class="mx-2 w-8 flex items-center justify-center"
-			title="Twitter"
+			title="X"
 			target="_blank"
 			rel="noopener noreferrer"
-			href={`https://github.com/${GITHUB_ACCOUNT}`}
+			href={`https://x.com/${TWITTER_ACCOUNT}`}
 		>
 			<Fa icon={faXTwitter} size="lg" />
 		</a>
@@ -92,7 +94,7 @@ onDestroy(() => {
 			title="GitHub"
 			target="_blank"
 			rel="noopener noreferrer"
-			href={`https://twitter.com/${TWITTER_ACCOUNT}`}
+			href={`https://github.com/${GITHUB_ACCOUNT}`}
 		>
 			<Fa icon={faGithub} size="lg" />
 		</a>
@@ -106,7 +108,7 @@ onDestroy(() => {
 		</button>
 		<div
 			class={`fixed z-10 min-w-[150px] md:min-w-[250px] h-screen m-0 p-0 top-0 right-0 overflow-y-auto overscroll-y-none transition-transform bg-gray-900 opacity-90 ${
-				isOpen ? 'translate-x-0' : 'translate-x-full'
+				isOpen ? "translate-x-0" : "translate-x-full"
 			}`}
 			tabindex="-1"
 		>
@@ -127,7 +129,10 @@ onDestroy(() => {
 					<ul class="m-0 p-0">
 						{#each postItems as item}
 							<li class="list-none m-0 pl-2 hover:bg-gray-700">
-								<a class="px-4 py-2 block" href={`/archives/category/${item.slug}/`}>{item.text}</a>
+								<a
+									class="px-4 py-2 block"
+									href={`/archives/category/${item.slug}/`}>{item.text}</a
+								>
 							</li>
 							{#if item.subItems.length > 0}
 								<li class="list-none m-0">
