@@ -23,7 +23,7 @@
 		"@testing-library/svelte": "^5.2.1",
 		"autoprefixer": "^10.4.20",
 		"contentful": "^10.13.3",
-		"dayjs": "^1.11.11",
+		"dayjs": "^1.11.12",
 		"jsdom": "^24.1.1",
 		"marked": "^11.1.0",
 		"postcss": "^8.4.40",
