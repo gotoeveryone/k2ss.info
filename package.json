@@ -22,7 +22,7 @@
 		"@sveltejs/kit": "^2.5.7",
 		"@testing-library/svelte": "^5.2.1",
 		"autoprefixer": "^10.4.20",
-		"contentful": "^10.14.1",
+		"contentful": "^10.15.0",
 		"dayjs": "^1.11.13",
 		"jsdom": "^24.1.1",
 		"marked": "^11.1.0",
