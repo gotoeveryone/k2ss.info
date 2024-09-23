@@ -36,7 +36,7 @@
 		"tslib": "^2.7.0",
 		"typescript": "^5.5.4",
 		"vite": "^5.4.7",
-		"vitest": "^2.0.5"
+		"vitest": "^2.1.1"
 	},
 	"engines": {
 		"node": ">=18 <19"
