@@ -28,7 +28,7 @@
     "marked": "^11.1.0",
     "postcss": "^8.4.48",
     "svelte": "^4.2.19",
-    "svelte-check": "^4.0.6",
+    "svelte-check": "^4.0.7",
     "svelte-fa": "^4.0.3",
     "svelte-meta-tags": "^3.1.4",
     "svelte-sitemap": "^2.6.0",
