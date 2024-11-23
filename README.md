@@ -1,5 +1,7 @@
 # k2ss.info
 
+![Build Status](https://github.com/gotoeveryone/k2ss.info/workflows/CI/badge.svg)
+
 [日々、邁進](https://k2ss.info) のコード
 
 ## Requirements
