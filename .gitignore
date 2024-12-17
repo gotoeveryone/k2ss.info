@@ -13,7 +13,10 @@ vite.config.ts.timestamp-*
 *.log
 
 # asdf
-.tool-versions
+/.tool-versions
+
+# mise
+/mise.toml
 
 # IDE, Editor
 /.idea

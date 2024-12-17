@@ -6,7 +6,7 @@
 
 ## Requirements
 
-- Node.js
+- Node.js 20.x
 
 ## Setup
 
