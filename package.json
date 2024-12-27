@@ -18,7 +18,7 @@
     "@biomejs/biome": "^1.9.4",
     "@fortawesome/free-brands-svg-icons": "^6.7.1",
     "@fortawesome/free-solid-svg-icons": "^6.7.1",
-    "@sveltejs/adapter-static": "^3.0.6",
+    "@sveltejs/adapter-static": "^3.0.8",
     "@sveltejs/kit": "^2.5.7",
     "@testing-library/svelte": "^5.2.6",
     "autoprefixer": "^10.4.20",
