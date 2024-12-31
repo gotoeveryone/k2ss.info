@@ -1,4 +1,5 @@
 <script lang="ts">
+import { browser } from "$app/environment";
 import Markdown from "$lib/components/markdown.svelte";
 import { getMetaTitle, getOpenGraph, getTwitter } from "$lib/modules/meta";
 import { getSiteUrl } from "$lib/modules/site";
@@ -46,6 +47,10 @@ const metaTitle = getMetaTitle(data.post.title);
 <div class="mt-8 text-center">
 	<a href="/">一覧に戻る</a>
 </div>
+
+{#if browser}
+  <script async src="https://platform.twitter.com/widgets.js"></script>
+{/if}
 
 <svelte:head>
 	<script async src="https://platform.twitter.com/widgets.js"></script>
