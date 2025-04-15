@@ -1,18 +1,18 @@
 import { sveltekit } from "@sveltejs/kit/vite";
-import { svelteTesting } from '@testing-library/svelte/vite'
-import { defineConfig } from 'vite'
+import { defineConfig } from "vite";
+import type { UserConfig } from "vite";
+import type { InlineConfig } from "vitest";
 
-export default defineConfig(({ mode }) => ({
-	plugins: [sveltekit(), svelteTesting()],
-	// Svelte error: lifecycle_function_unavailable への対応
-	// https://github.com/sveltejs/svelte/issues/11394
-	resolve: {
-		conditions: mode === 'test' ? ['browser'] : [],
-	},
+interface VitestConfigExport extends UserConfig {
+  test: InlineConfig;
+}
+
+export default defineConfig({
+	plugins: [sveltekit()],
 	test: {
 		watch: false,
 		globals: true,
 		environment: 'jsdom',
 		include: ['src/**/*.{test,spec}.{js,ts}']
 	}
-}));
+} as VitestConfigExport);
