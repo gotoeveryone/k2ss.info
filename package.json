@@ -27,7 +27,7 @@
     "dayjs": "^1.11.13",
     "jsdom": "^26.1.0",
     "marked": "^11.1.0",
-    "postcss": "^8.5.3",
+    "postcss": "^8.5.4",
     "svelte": "^5.27.0",
     "svelte-check": "^4.2.1",
     "svelte-fa": "^4.0.4",
