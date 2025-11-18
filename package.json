@@ -22,7 +22,7 @@
     "@sveltejs/kit": "^2.20.7",
     "@sveltejs/vite-plugin-svelte": "^5.1.1",
     "@testing-library/svelte": "^5.2.9",
-    "autoprefixer": "^10.4.21",
+    "autoprefixer": "^10.4.22",
     "contentful": "^10.15.1",
     "dayjs": "^1.11.19",
     "marked": "^11.1.0",
