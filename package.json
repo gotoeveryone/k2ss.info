@@ -25,7 +25,7 @@
     "autoprefixer": "^10.4.22",
     "contentful": "^10.15.1",
     "dayjs": "^1.11.19",
-    "marked": "^11.1.0",
+    "marked": "^17.0.1",
     "postcss": "^8.5.6",
     "svelte": "^5.27.0",
     "svelte-check": "^4.3.4",
