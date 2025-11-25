@@ -2,7 +2,7 @@
 import { marked } from "marked";
 
 const renderer = new marked.Renderer();
-renderer.link = (href, title, text) => {
+renderer.link = ({ href, title, text }) => {
 	const target = href.startsWith("http") ? "_blank" : "_self";
 	return `<a href="${href}" title="${
 		title || ""

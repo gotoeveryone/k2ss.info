@@ -11,7 +11,7 @@ import type { PageServerData } from "./$types";
 export let data: PageServerData;
 
 const renderer = new marked.Renderer();
-renderer.link = (href, title, text) => {
+renderer.link = ({ href, title, text }) => {
 	const target = href.startsWith("http") ? "_blank" : "_self";
 	return `<a href="${href}" title="${
 		title || ""
@@ -24,19 +24,25 @@ const metaTitle = getMetaTitle(data.post.title);
 <MetaTags
 	title={metaTitle}
 	canonical={getSiteUrl(data.path)}
-	openGraph={getOpenGraph({ type: 'article', path: data.path, title: metaTitle })}
+	openGraph={getOpenGraph({
+		type: "article",
+		path: data.path,
+		title: metaTitle,
+	})}
 	twitter={getTwitter({
-		title: metaTitle
+		title: metaTitle,
 	})}
 />
 
 <article>
-	<span class="text-xs">{dayjs(data.post.date).format('YYYY/MM/DD')}</span>
+	<span class="text-xs">{dayjs(data.post.date).format("YYYY/MM/DD")}</span>
 	<h1 class="mt-2 text-2xl font-bold">{data.post.title}</h1>
 	{#if data.post.categories.length > 0}
 		<div class="my-4">
 			{#each data.post.categories as category}
-				<a class="mr-3 font-bold text-sm" href={category.link}>{category.name}</a>
+				<a class="mr-3 font-bold text-sm" href={category.link}
+					>{category.name}</a
+				>
 			{/each}
 		</div>
 	{/if}
@@ -49,7 +55,7 @@ const metaTitle = getMetaTitle(data.post.title);
 </div>
 
 {#if browser}
-  <script async src="https://platform.twitter.com/widgets.js"></script>
+	<script async src="https://platform.twitter.com/widgets.js"></script>
 {/if}
 
 <svelte:head>
