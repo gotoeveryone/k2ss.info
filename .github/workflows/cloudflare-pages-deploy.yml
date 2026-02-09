@@ -1,4 +1,5 @@
 name: Deploy to Cloudflare Pages on merge
+
 on:
   workflow_run:
     workflows:
@@ -12,10 +13,14 @@ on:
     types:
       - upload_entry
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build_and_deploy:
     if: ${{ github.event.workflow_run.conclusion == 'success' || github.event.client_payload.deploy }}
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     env:
       PUBLIC_SITE_URL: https://k2ss.info
       CONTENTFUL_SPACE: ${{ secrets.CONTENTFUL_SPACE }}
