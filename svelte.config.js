@@ -22,6 +22,9 @@ const config = {
       $routes: "./src/routes",
       types: "./src/types",
     },
+    paths: {
+      relative: false,
+    },
     prerender: {
       entries: [
         "/404/",
