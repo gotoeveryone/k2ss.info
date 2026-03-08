@@ -26,15 +26,15 @@ export class Category {
 					slug: item.fields.slug as string,
 					name: item.fields.name as string,
 					link: this.createLink(item),
-					childCategories: ((item.fields.childCategories as Entry[]) || []).map(
-						(c) => ({
+					childCategories: ((item.fields.childCategories as Entry[]) || [])
+						.filter((c) => c.fields)
+						.map((c) => ({
 							id: c.sys.id,
 							slug: c.fields.slug as string,
 							name: c.fields.name as string,
 							link: this.createLink(c),
 							childCategories: [],
-						}),
-					),
+						})),
 				}));
 			});
 	}
