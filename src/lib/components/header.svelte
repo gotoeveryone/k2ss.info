@@ -47,7 +47,6 @@ const postItems = [
 		text: "その他",
 		subItems: [
 			{ slug: "jobs", text: "仕事" },
-			{ slug: "books", text: "本・漫画" },
 			{ slug: "certificates", text: "資格" },
 			{ slug: "meals", text: "料理" },
 			{ slug: "travels", text: "旅行" },
