@@ -29,8 +29,9 @@ describe("Markdown", () => {
 		});
 
 		const link = container.querySelector("a");
-		const image = container.querySelector("img");
+		const image = link?.querySelector("img");
 		expect(link?.getAttribute("href")).toBe("/images/2022/08/20220829_1.png");
+		expect(!!(link && image && link.contains(image))).toBe(true);
 		expect(image?.getAttribute("src")).toBe("/images/2022/08/20220829_1.png");
 	});
 });
