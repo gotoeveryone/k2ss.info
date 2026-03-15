@@ -21,7 +21,7 @@
 			<span class="block min-w-[25px] text-center">{page}</span>
 		{:else}
 			<a
-				href={page === 1 ? "" : `${prefix}page/${page}/`}
+				href={page === 1 ? prefix : `${prefix}page/${page}/`}
 				class="block min-w-[25px] text-center">{page}</a
 			>
 		{/if}
