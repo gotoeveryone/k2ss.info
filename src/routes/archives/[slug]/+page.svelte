@@ -1,24 +1,24 @@
 <script lang="ts">
-import { browser } from "$app/environment";
-import Markdown from "$lib/components/markdown.svelte";
-import { getMetaTitle, getOpenGraph, getTwitter } from "$lib/modules/meta";
-import { getSiteUrl } from "$lib/modules/site";
-import dayjs from "dayjs";
-import { marked } from "marked";
-import { MetaTags } from "svelte-meta-tags";
-import type { PageServerData } from "./$types";
+	import { browser } from "$app/environment";
+	import Markdown from "$lib/components/markdown.svelte";
+	import { getMetaTitle, getOpenGraph, getTwitter } from "$lib/modules/meta";
+	import { getSiteUrl } from "$lib/modules/site";
+	import dayjs from "dayjs";
+	import { marked } from "marked";
+	import { MetaTags } from "svelte-meta-tags";
+	import type { PageServerData } from "./$types";
 
-export let data: PageServerData;
+	export let data: PageServerData;
 
-const renderer = new marked.Renderer();
-renderer.link = ({ href, title, text }) => {
-	const target = href.startsWith("http") ? "_blank" : "_self";
-	return `<a href="${href}" title="${
-		title || ""
-	}" target="${target}">${text}</a>`;
-};
+	const renderer = new marked.Renderer();
+	renderer.link = ({ href, title, text }) => {
+		const target = href.startsWith("http") ? "_blank" : "_self";
+		return `<a href="${href}" title="${
+			title || ""
+		}" target="${target}">${text}</a>`;
+	};
 
-const metaTitle = getMetaTitle(data.post.title);
+	const metaTitle = getMetaTitle(data.post.title);
 </script>
 
 <MetaTags
@@ -39,14 +39,14 @@ const metaTitle = getMetaTitle(data.post.title);
 	<h1 class="mt-2 text-2xl font-bold">{data.post.title}</h1>
 	{#if data.post.categories.length > 0}
 		<div class="my-4">
-			{#each data.post.categories as category}
-				<a class="mr-3 font-bold text-sm" href={category.link}
+			{#each data.post.categories as category (category.id)}
+				<a class="mr-3 text-sm font-bold" href={category.link}
 					>{category.name}</a
 				>
 			{/each}
 		</div>
 	{/if}
-	<div class="leading-8 post-content">
+	<div class="post-content leading-8">
 		<Markdown content={data.post.content} />
 	</div>
 </article>

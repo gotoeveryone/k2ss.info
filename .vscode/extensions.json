@@ -2,7 +2,8 @@
 	"recommendations": [
 		"EditorConfig.EditorConfig",
 		"svelte.svelte-vscode",
-    "biomejs.biome",
+		"dbaeumer.vscode-eslint",
+		"esbenp.prettier-vscode",
 		"bradlc.vscode-tailwindcss"
 	]
 }

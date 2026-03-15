@@ -6,7 +6,10 @@ export class Category {
 	getCategories({
 		slug,
 		ids,
-	}: { slug?: string; ids?: string[] }): Promise<CategoryItem[]> {
+	}: {
+		slug?: string;
+		ids?: string[];
+	}): Promise<CategoryItem[]> {
 		const params = {} as Record<string, string>;
 		if (slug) {
 			params["fields.slug"] = slug;
