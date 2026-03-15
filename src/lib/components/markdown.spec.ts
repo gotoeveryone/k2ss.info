@@ -19,4 +19,18 @@ describe("Markdown", () => {
 		expect(link?.getAttribute("target")).toBe("_blank");
 		expect(link?.getAttribute("rel")).toBe("noopener noreferrer");
 	});
+
+	test("画像リンクが文字列ではなく img 要素として描画される", () => {
+		const { container } = render(Component, {
+			props: {
+				content:
+					"[![](/images/2022/08/20220829_1.png)](/images/2022/08/20220829_1.png)",
+			},
+		});
+
+		const link = container.querySelector("a");
+		const image = container.querySelector("img");
+		expect(link?.getAttribute("href")).toBe("/images/2022/08/20220829_1.png");
+		expect(image?.getAttribute("src")).toBe("/images/2022/08/20220829_1.png");
+	});
 });
