@@ -9,4 +9,14 @@ describe("Markdown", () => {
 		});
 		expect(container).toBeDefined();
 	});
+
+	test("外部リンクに rel 属性が設定される", () => {
+		const { container } = render(Component, {
+			props: { content: '[test](https://example.com "example")' },
+		});
+
+		const link = container.querySelector("a");
+		expect(link?.getAttribute("target")).toBe("_blank");
+		expect(link?.getAttribute("rel")).toBe("noopener noreferrer");
+	});
 });

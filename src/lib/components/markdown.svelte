@@ -4,9 +4,10 @@
 	const renderer = new marked.Renderer();
 	renderer.link = ({ href, title, text }) => {
 		const target = href.startsWith("http") ? "_blank" : "_self";
+		const rel = target === "_blank" ? ' rel="noopener noreferrer"' : "";
 		return `<a href="${href}" title="${
 			title || ""
-		}" target="${target}">${text}</a>`;
+		}" target="${target}"${rel}>${text}</a>`;
 	};
 
 	export let content: string;
