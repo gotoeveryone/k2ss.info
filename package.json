@@ -25,7 +25,7 @@
     "autoprefixer": "^10.4.27",
     "contentful": "^10.15.1",
     "dayjs": "^1.11.20",
-    "eslint": "^10.0.3",
+    "eslint": "^10.1.0",
     "eslint-plugin-svelte": "^3.15.2",
     "globals": "^17.4.0",
     "jsdom": "^28.1.0",
