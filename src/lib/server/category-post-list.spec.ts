@@ -8,15 +8,19 @@ const getCategories = vi.fn();
 const getPosts = vi.fn();
 
 vi.mock("$lib/repositories/category", () => ({
-	Category: vi.fn(() => ({
-		getCategories,
-	})),
+	Category: vi.fn(function Category() {
+		return {
+			getCategories,
+		};
+	}),
 }));
 
 vi.mock("$lib/repositories/post", () => ({
-	Post: vi.fn(() => ({
-		getPosts,
-	})),
+	Post: vi.fn(function Post() {
+		return {
+			getPosts,
+		};
+	}),
 }));
 
 describe("loadCategoryPostList", () => {
