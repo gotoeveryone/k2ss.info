@@ -1,6 +1,6 @@
 {
   "name": "k2ss.info",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "vite dev",
@@ -48,7 +48,8 @@
     "vitest": "^4.1.8"
   },
   "engines": {
-    "node": ">=24 <25"
+    "node": ">=24.16 <25",
+    "npm": ">=11"
   },
   "type": "module"
 }
