@@ -6,7 +6,7 @@
 
 ## Requirements
 
-- Node.js 24.x
+- Node.js 24.16+
 
 ## Setup
 
