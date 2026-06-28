@@ -13,6 +13,9 @@ on:
     types:
       - upload_entry
 
+permissions:
+  contents: read
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
@@ -50,7 +53,6 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy build --project-name=k2ss-info --branch=main
-
 
   notify:
     if: ${{ always() && (needs.build_and_deploy.result == 'success' || needs.build_and_deploy.result == 'failure') }}
