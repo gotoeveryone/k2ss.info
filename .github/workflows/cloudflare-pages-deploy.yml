@@ -13,6 +13,9 @@ on:
     types:
       - upload_entry
 
+permissions:
+  contents: read
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
@@ -50,3 +53,34 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy build --project-name=k2ss-info --branch=main
+
+  notify:
+    if: ${{ always() && (needs.build_and_deploy.result == 'success' || needs.build_and_deploy.result == 'failure') }}
+    needs:
+      - build_and_deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify to Slack
+        uses: slackapi/slack-github-action@v3.0.3
+        with:
+          webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
+          webhook-type: incoming-webhook
+          payload: |
+            text: "${{ needs.build_and_deploy.result == 'success' && ':white_check_mark: Deploy succeeded' || ':x: Deploy failed' }}"
+            blocks:
+              - type: section
+                text:
+                  type: mrkdwn
+                  text: "${{ needs.build_and_deploy.result == 'success' && ':white_check_mark: *Deploy succeeded*' || ':x: *Deploy failed*' }}"
+              - type: section
+                fields:
+                  - type: mrkdwn
+                    text: "*Repository:*\n<${{ github.server_url }}/${{ github.repository }}|${{ github.repository }}>"
+              - type: actions
+                elements:
+                  - type: button
+                    text:
+                      type: plain_text
+                      text: View workflow
+                    url: "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+                    action_id: view_workflow
