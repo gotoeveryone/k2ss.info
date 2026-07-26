@@ -32,7 +32,7 @@ jobs:
       CONTENTFUL_PREVIEW_TOKEN: ${{ secrets.CONTENTFUL_PREVIEW_TOKEN }}
       PREVIEW_SECRET: dummy # 開発時しか利用しないので適当な値を設定しておく
     steps:
-      - uses: actions/checkout@v7.0.0
+      - uses: actions/checkout@v7.0.1
 
       - name: Use Node.js
         uses: actions/setup-node@v6.4.0
