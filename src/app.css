@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 html {
 	@apply bg-gray-800 text-sm text-white md:text-base;
@@ -8,11 +6,11 @@ html {
 }
 
 ul {
-	@apply mb-4 mt-2 list-disc;
+	@apply mt-2 mb-4 list-disc;
 }
 
 ol {
-	@apply mb-4 mt-2 list-decimal;
+	@apply mt-2 mb-4 list-decimal;
 }
 
 li {
@@ -28,19 +26,19 @@ a {
 }
 
 h1 {
-	@apply mb-4 mt-8 text-3xl font-bold;
+	@apply mt-8 mb-4 text-3xl font-bold;
 }
 
 h2 {
-	@apply mb-2 mt-8 text-xl font-bold;
+	@apply mt-8 mb-2 text-xl font-bold;
 }
 
 h3 {
-	@apply mb-3 mt-6 text-lg font-bold;
+	@apply mt-6 mb-3 text-lg font-bold;
 }
 
 h4 {
-	@apply mb-2 mt-2 text-base font-bold;
+	@apply mt-2 mb-2 text-base font-bold;
 }
 
 p:not(:first-child) {

@@ -21,6 +21,6 @@
 
 <h1>{data.page.title}</h1>
 
-<div class="break-words leading-8">
+<div class="leading-8 break-words">
 	<Markdown content={data.page.content} />
 </div>
