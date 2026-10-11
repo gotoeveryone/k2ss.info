@@ -106,7 +106,7 @@
 			<Fa icon={faBars} size="lg" />
 		</button>
 		<div
-			class={`fixed right-0 top-0 z-10 m-0 h-screen min-w-[150px] overflow-y-auto overscroll-y-none bg-gray-900 p-0 opacity-90 transition-transform md:min-w-[250px] ${
+			class={`fixed top-0 right-0 z-10 m-0 h-screen min-w-[150px] overflow-y-auto overscroll-y-none bg-gray-900 p-0 opacity-90 transition-transform md:min-w-[250px] ${
 				isOpen ? "translate-x-0" : "translate-x-full"
 			}`}
 			tabindex="-1"

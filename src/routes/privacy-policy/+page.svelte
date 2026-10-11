@@ -21,13 +21,13 @@
 
 <h1>{data.page.title}</h1>
 
-<div class="privacy-policy break-words leading-8">
+<div class="privacy-policy leading-8 break-words">
 	<Markdown content={data.page.content} />
 </div>
 
 <style>
 	.privacy-policy :global(ol) {
-		@apply font-bold;
+		font-weight: bold;
 	}
 
 	.privacy-policy :global(p) {
