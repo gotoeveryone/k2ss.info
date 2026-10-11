@@ -1,9 +1,9 @@
 import { error } from "@sveltejs/kit";
-import { dev } from "$app/environment";
-import { PREVIEW_SECRET } from "$env/static/private";
-import { Category as CategoryRepo } from "$lib/repositories/category";
-import { Post as PostRepo } from "$lib/repositories/post";
-import type { PostItem } from "types/post";
+import { dev } from "$app/env";
+import { PREVIEW_SECRET } from "$app/env/private";
+import { Category as CategoryRepo } from "#lib/repositories/category.ts";
+import { Post as PostRepo } from "#lib/repositories/post.ts";
+import type { PostItem } from "#types/post.ts";
 
 export const load = async ({ params, request }) => {
 	const postRepo = new PostRepo();

@@ -1,6 +1,6 @@
-import { PUBLIC_SITE_URL } from "$env/static/public";
-import { SITE_NAME, TWITTER_ACCOUNT } from "$lib/constants";
-import { getSiteUrl } from "$lib/modules/site";
+import { PUBLIC_SITE_URL } from "$app/env/public";
+import { SITE_NAME, TWITTER_ACCOUNT } from "#lib/constants/index.ts";
+import { getSiteUrl } from "#lib/modules/site.ts";
 import type { OpenGraph, Twitter } from "svelte-meta-tags";
 
 export const getMetaImagePath = (path?: string) => {

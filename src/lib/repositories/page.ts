@@ -1,5 +1,5 @@
-import { client } from "$lib/clients/contentful";
-import type { PageItem } from "types/page";
+import { client } from "#lib/clients/contentful.ts";
+import type { PageItem } from "#types/page.ts";
 
 export class Page {
 	async getPage(slug: string) {

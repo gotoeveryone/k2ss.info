@@ -1,6 +1,6 @@
-import { client } from "$lib/clients/contentful";
+import { client } from "#lib/clients/contentful.ts";
 import type { Entry } from "contentful";
-import type { Category as CategoryItem } from "types/category";
+import type { Category as CategoryItem } from "#types/category.ts";
 
 export class Category {
 	getCategories({

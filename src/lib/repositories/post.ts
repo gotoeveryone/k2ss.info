@@ -1,7 +1,7 @@
-import { client, previewClient } from "$lib/clients/contentful";
+import { client, previewClient } from "#lib/clients/contentful.ts";
 import type { Entry } from "contentful";
 import { marked } from "marked";
-import type { PostItem, PostLiteResponse } from "types/post";
+import type { PostItem, PostLiteResponse } from "#types/post.ts";
 
 export class Post {
 	getPosts({

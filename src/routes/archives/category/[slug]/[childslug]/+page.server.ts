@@ -2,7 +2,7 @@ import { error } from "@sveltejs/kit";
 import {
 	CategoryPostListNotFoundError,
 	loadCategoryPostList,
-} from "$lib/server/category-post-list";
+} from "#lib/server/category-post-list.ts";
 
 export const load = async ({ params }) => {
 	try {

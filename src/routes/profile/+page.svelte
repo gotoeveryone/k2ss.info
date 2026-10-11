@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Markdown from "$lib/components/markdown.svelte";
-	import { getMetaTitle, getOpenGraph, getTwitter } from "$lib/modules/meta";
-	import { getSiteUrl } from "$lib/modules/site";
+	import Markdown from "#lib/components/markdown.svelte";
+	import { getMetaTitle, getOpenGraph, getTwitter } from "#lib/modules/meta.ts";
+	import { getSiteUrl } from "#lib/modules/site.ts";
 	import { MetaTags } from "svelte-meta-tags";
 	import type { PageServerData } from "./$types";
 

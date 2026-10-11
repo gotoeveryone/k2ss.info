@@ -4,7 +4,7 @@ import {
 	CONTENTFUL_ENVIRONMENT,
 	CONTENTFUL_ACCESS_TOKEN,
 	CONTENTFUL_PREVIEW_TOKEN,
-} from "$env/static/private";
+} from "$app/env/private";
 
 export const client = contentful.createClient({
 	accessToken: CONTENTFUL_ACCESS_TOKEN,

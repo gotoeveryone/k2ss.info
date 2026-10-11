@@ -2,12 +2,12 @@ import { beforeEach, describe, expect, test, vi } from "vitest";
 import {
 	CategoryPostListNotFoundError,
 	loadCategoryPostList,
-} from "$lib/server/category-post-list";
+} from "#lib/server/category-post-list.ts";
 
 const getCategories = vi.fn();
 const getPosts = vi.fn();
 
-vi.mock("$lib/repositories/category", () => ({
+vi.mock("#lib/repositories/category.ts", () => ({
 	Category: vi.fn(function Category() {
 		return {
 			getCategories,
@@ -15,7 +15,7 @@ vi.mock("$lib/repositories/category", () => ({
 	}),
 }));
 
-vi.mock("$lib/repositories/post", () => ({
+vi.mock("#lib/repositories/post.ts", () => ({
 	Post: vi.fn(function Post() {
 		return {
 			getPosts,
