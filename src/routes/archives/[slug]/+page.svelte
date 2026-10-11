@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { browser } from "$app/env";
 	import Markdown from "#lib/components/markdown.svelte";
+	import { formatJstDate } from "#lib/modules/date.ts";
 	import { getMetaTitle, getOpenGraph, getTwitter } from "#lib/modules/meta.ts";
 	import { Prism } from "#lib/modules/prism.ts";
 	import { getSiteUrl } from "#lib/modules/site.ts";
-	import dayjs from "dayjs";
 	import { afterUpdate, tick } from "svelte";
 	import { MetaTags } from "svelte-meta-tags";
 	import type { PageServerData } from "./$types";
@@ -57,7 +57,7 @@
 />
 
 <article bind:this={articleRef}>
-	<span class="text-xs">{dayjs(data.post.date).format("YYYY/MM/DD")}</span>
+	<span class="text-xs">{formatJstDate(data.post.date)}</span>
 	<h1 class="mt-2 text-2xl font-bold">{data.post.title}</h1>
 	{#if data.post.categories.length > 0}
 		<div class="my-4">
