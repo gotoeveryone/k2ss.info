@@ -1,5 +1,5 @@
 import { error } from "@sveltejs/kit";
-import { Page as PageRepo } from "$lib/repositories/page";
+import { Page as PageRepo } from "#lib/repositories/page.ts";
 
 export const load = async () => {
 	const repo = new PageRepo();

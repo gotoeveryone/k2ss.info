@@ -1,5 +1,5 @@
-import { Category as CategoryRepo } from "$lib/repositories/category";
-import { Post as PostRepo } from "$lib/repositories/post";
+import { Category as CategoryRepo } from "#lib/repositories/category.ts";
+import { Post as PostRepo } from "#lib/repositories/post.ts";
 
 type LoadCategoryPostListParams = {
 	slug: string;
@@ -53,10 +53,7 @@ export const loadCategoryPostList = async ({
 	const urlPrefix = childslug
 		? `/archives/category/${slug}/${childslug}/`
 		: `/archives/category/${slug}/`;
-	const path =
-		page === 1
-			? urlPrefix
-			: `${urlPrefix}page/${page}/`;
+	const path = page === 1 ? urlPrefix : `${urlPrefix}page/${page}/`;
 
 	return {
 		path,

@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { browser } from "$app/environment";
+	import { browser } from "$app/env";
 	import {
 		GITHUB_ACCOUNT,
 		SITE_DESCRIPTION,
 		SITE_NAME,
 		TWITTER_ACCOUNT,
-	} from "$lib/constants";
+	} from "#lib/constants/index.ts";
 	import { faGithub, faXTwitter } from "@fortawesome/free-brands-svg-icons";
 	import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 	import { onDestroy, onMount } from "svelte";

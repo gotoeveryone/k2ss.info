@@ -1,6 +1,6 @@
 import { render } from "@testing-library/svelte";
 import { describe, expect, test } from "vitest";
-import Component from "$lib/components/markdown.svelte";
+import Component from "#lib/components/markdown.svelte";
 
 describe("Markdown", () => {
 	test("レンダリングされる", () => {

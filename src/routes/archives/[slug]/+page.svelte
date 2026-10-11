@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { browser } from "$app/environment";
-	import Markdown from "$lib/components/markdown.svelte";
-	import { getMetaTitle, getOpenGraph, getTwitter } from "$lib/modules/meta";
-	import { Prism } from "$lib/modules/prism";
-	import { getSiteUrl } from "$lib/modules/site";
+	import { browser } from "$app/env";
+	import Markdown from "#lib/components/markdown.svelte";
+	import { getMetaTitle, getOpenGraph, getTwitter } from "#lib/modules/meta.ts";
+	import { Prism } from "#lib/modules/prism.ts";
+	import { getSiteUrl } from "#lib/modules/site.ts";
 	import dayjs from "dayjs";
 	import { afterUpdate, tick } from "svelte";
 	import { MetaTags } from "svelte-meta-tags";

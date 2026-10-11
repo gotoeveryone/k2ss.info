@@ -1,7 +1,7 @@
 <script lang="ts">
-	import PostItem from "$lib/components/post-item.svelte";
-	import { getMetaTitle, getOpenGraph, getTwitter } from "$lib/modules/meta";
-	import { getSiteUrl } from "$lib/modules/site";
+	import PostItem from "#lib/components/post-item.svelte";
+	import { getMetaTitle, getOpenGraph, getTwitter } from "#lib/modules/meta.ts";
+	import { getSiteUrl } from "#lib/modules/site.ts";
 	import { MetaTags } from "svelte-meta-tags";
 	import type { PageServerData } from "./$types";
 

@@ -1,10 +1,10 @@
 <script lang="ts">
-	import type { Category } from "types/category";
-	import type { PostListItem } from "types/post";
-	import Pager from "$lib/components/pager.svelte";
-	import PostItem from "$lib/components/post-item.svelte";
-	import { getMetaTitle, getOpenGraph, getTwitter } from "$lib/modules/meta";
-	import { getSiteUrl } from "$lib/modules/site";
+	import type { Category } from "#types/category.ts";
+	import type { PostListItem } from "#types/post.ts";
+	import Pager from "#lib/components/pager.svelte";
+	import PostItem from "#lib/components/post-item.svelte";
+	import { getMetaTitle, getOpenGraph, getTwitter } from "#lib/modules/meta.ts";
+	import { getSiteUrl } from "#lib/modules/site.ts";
 	import { MetaTags } from "svelte-meta-tags";
 
 	type CategoryPostListPageData = {

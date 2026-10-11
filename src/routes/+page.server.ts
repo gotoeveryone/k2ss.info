@@ -1,4 +1,4 @@
-import { Post as PostRepo } from "$lib/repositories/post";
+import { Post as PostRepo } from "#lib/repositories/post.ts";
 
 export const load = async () => {
 	const postRepo = new PostRepo();

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import dayjs from "dayjs";
-	import type { PostListItem } from "types/post";
+	import type { PostListItem } from "#types/post.ts";
 
 	export let item: PostListItem;
 </script>

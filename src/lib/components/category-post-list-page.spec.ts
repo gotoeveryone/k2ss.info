@@ -1,6 +1,6 @@
 import { render } from "@testing-library/svelte";
 import { describe, expect, test } from "vitest";
-import Component from "$lib/components/category-post-list-page.svelte";
+import Component from "#lib/components/category-post-list-page.svelte";
 
 const data = {
 	path: "/archives/category/it/",
